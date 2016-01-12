@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import TopGames from './components/TopGames';
-
-var games = ['CS', 'LoL'];
+import DummyData from './dummydata';
 
 ReactDom.render(
-  <TopGames games={games} />,
+  <TopGames games={DummyData} />,
   document.getElementById('app')
 )
