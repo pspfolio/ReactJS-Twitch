@@ -4,6 +4,6 @@ import TopGames from './components/TopGames';
 import DummyData from './dummydata';
 
 ReactDom.render(
-  <TopGames games={DummyData} />,
+  <TopGames topGames={DummyData} />,
   document.getElementById('app')
 )
