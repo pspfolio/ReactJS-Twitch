@@ -6,7 +6,7 @@ import App from './components/App';
 import DummyData from './dummydata';
 
 const routes = <Route component={App}>
-  <Route path="/TopGames" component={TopGames} />
+  <Route path="/" component={TopGames} />
 </Route>;
 
 ReactDom.render(
