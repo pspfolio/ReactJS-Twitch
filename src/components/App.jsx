@@ -1,8 +1,9 @@
 import React from 'react';
-import DummyData from '../dummydata';
+import { TopGames } from '../dummydata';
+import { Streams } from '../dummydata';
 
 export default React.createClass({
   render() {
-    return React.cloneElement(this.props.children, {topGames: DummyData});
+    return React.cloneElement(this.props.children, {topGames: TopGames, streams: Streams});
   }
 });
