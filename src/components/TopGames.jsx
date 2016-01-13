@@ -4,11 +4,11 @@ import Game from './Game';
 export default class TopGames extends Component {
   render() {
     return (
-      <div>
-      <h2>TopGames</h2>
-        {this.props.topGames.map(item =>
-          <Game game={item.game} key={item.game._id} />
-        )}
+      <div className="row text-center">
+        <h2>TopGames</h2>
+          {this.props.topGames.map(item =>
+            <Game game={item.game} key={item.game._id} />
+          )}
       </div>
     )
   }

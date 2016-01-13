@@ -4,9 +4,10 @@ export default class Game extends Component {
   render() {
     const { game } = this.props;
     return (
-      <div key={game._id}>
-        <h3>{game.name}</h3>
-        <img src={game.box.large} alt="stream twitch game" />
+      <div className="col-xs-12 col-sm-6 col-lg-4">
+        <div key={game._id}>
+          <img src={game.box.large} alt="stream twitch game" />
+        </div>
       </div>
     )
   }
