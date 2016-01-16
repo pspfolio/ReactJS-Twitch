@@ -1,6 +1,8 @@
 import fetch from 'isomorphic-fetch';
 
 export const REQUEST_GAMES = 'REQUEST_GAMES';
+export const RECEIVE_GAMES = 'RECEIVE_GAMES';
+
 function requestGames(twitch){
   return {
     type: REQUEST_GAMES,
@@ -8,12 +10,13 @@ function requestGames(twitch){
   }
 };
 
-export const RECEIVE_GAMES = 'RECEIVE_GAMES';
+
 function receiveGames(twitch, json) {
   return {
     type: RECEIVE_GAMES,
     twitch,
-    items: json.top
+    items: json.top,
+    received: Date.now()
   }
 };
 

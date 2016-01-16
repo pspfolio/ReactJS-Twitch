@@ -21,6 +21,7 @@ class TopGames extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('state', state);
   const { TopGames } = state;
   const { isFetching, items: games} = TopGames || {isFetching: true, items: []};
   return {
