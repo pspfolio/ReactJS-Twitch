@@ -20,7 +20,7 @@ function receiveGames(twitch, json) {
   }
 };
 
-// Calling this function with store.dispatch('TopGames');
+// Calling this function with store.dispatch('TopGames', 'url');
 export function fetchData(twitch, url) {
   return dispatch => {
     dispatch(requestGames(twitch));
@@ -28,4 +28,27 @@ export function fetchData(twitch, url) {
       dispatch(receiveGames(twitch, json))
     )
   }
+};
+
+function shouldFetch(state, twitch){
+  const items = state[twitch];
+  if(!items || (Date.now() - items.lastUpdated) > 500000) {
+    return true;
+  } else if(items.isFetching) {
+    return false;
+  } else {
+    return false;
+  }
+
+}
+
+export function fetchIfNeeded(twitch, url){
+  return(dispatch, getState) => {
+    if(shouldFetch(getState(), twitch)) {
+      return dispatch(fetchData(twitch, url));
+    } else {
+      return Promise.resolve();
+    }
+
+   }
 }

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchData} from '../actions/actions';
+import {fetchData, fetchIfNeeded} from '../actions/actions';
 import Game from './Game';
 
 class TopGames extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchData('TopGames', 'https://api.twitch.tv/kraken/games/top'))
+    dispatch(fetchIfNeeded('TopGames', 'https://api.twitch.tv/kraken/games/top'));
   }
   render() {
     return (
@@ -21,7 +21,6 @@ class TopGames extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state', state);
   const { TopGames } = state;
   const { isFetching, items: games} = TopGames || {isFetching: true, items: []};
   return {
