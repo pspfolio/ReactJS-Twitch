@@ -1,4 +1,4 @@
-import {REQUEST_GAMES, RECEIVE_GAMES} from '../actions/actions';
+import {REQUEST_GAMES, RECEIVE_GAMES} from '../actions/topGames';
 
 function items(state = {isFetching: false, items: []}, action) {
   switch(action.type) {

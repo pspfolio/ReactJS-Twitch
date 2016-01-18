@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Stream from './Stream';
 import {connect} from 'react-redux';
-import {fetchData, fetchIfNeeded} from '../actions/actions';
+import {fetchData, fetchIfNeeded} from '../actions/topGames';
 
 export default class Streams extends Component {
   componentDidMount() {
