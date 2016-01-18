@@ -6,7 +6,7 @@ import Game from './Game';
 class TopGames extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchIfNeeded('TopGames', 'https://api.twitch.tv/kraken/games/top'));
+    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
   }
   render() {
     return (
@@ -18,15 +18,15 @@ class TopGames extends Component {
       </div>
     )
   }
-}
+};
 
 function mapStateToProps(state) {
-  const { TopGames } = state;
-  const { isFetching, items: games} = TopGames || {isFetching: true, items: []};
+  const { topGames } = state;
+  const { isFetching, items: games} = topGames.games || {isFetching: true, items: []};
   return {
     games,
     isFetching
   }
-}
+};
 
 export default connect(mapStateToProps)(TopGames);

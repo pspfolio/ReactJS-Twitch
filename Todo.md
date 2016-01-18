@@ -1,2 +1,1 @@
 - Reducer for streams
-- Store for streams component
