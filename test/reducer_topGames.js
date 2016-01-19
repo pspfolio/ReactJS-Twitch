@@ -1,20 +1,20 @@
 import {expect} from 'chai';
 import itemsByTwitch from '../src/reducers/topGames';
 
-describe('reducer', () => {
+describe('TopGames Reducer', () => {
 
-  it('handles empty state', () => {
+  it('RECEIVE_GAMES handles empty state', () => {
     const action = {
       type: 'RECEIVE_GAMES',
       twitch: 'TopGames',
       items: [{Name: 'Stream1'}, {Name: 'Stream2'}]
     };
-    console.log(itemsByTwitch);
+
     var nextState = itemsByTwitch(undefined, action);
     expect(nextState.TopGames.items.length).to.equal(2);
   }),
 
-  it('handles RECEIVE_GAMES', () => {
+  it('RECEIVE_GAMES adding games to state', () => {
     const initState = {};
     const action = {
       type: 'RECEIVE_GAMES',
@@ -64,7 +64,7 @@ describe('reducer', () => {
       expect(nextState.TopGames.items[1].Name).to.equal('Stream4');
   }),
 
-  it('handles REQUEST_GAMES', () => {
+  it('REQUEST_GAMES sets isFething to true', () => {
     var initState = {};
     const action = {
       type: 'REQUEST_GAMES',
