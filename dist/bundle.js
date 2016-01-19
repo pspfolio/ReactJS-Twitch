@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7e6cd50582141e30bdfc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a5de0cfa333fe729dc5e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8043,21 +8043,17 @@
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
-	var _App = __webpack_require__(313);
+	var _App = __webpack_require__(319);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _TopGames = __webpack_require__(315);
+	var _TopGames = __webpack_require__(320);
 
 	var _TopGames2 = _interopRequireDefault(_TopGames);
 
-	var _Streams = __webpack_require__(320);
+	var _Streams = __webpack_require__(322);
 
 	var _Streams2 = _interopRequireDefault(_Streams);
-
-	var _dummydata = __webpack_require__(314);
-
-	var _dummydata2 = _interopRequireDefault(_dummydata);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8080,7 +8076,7 @@
 	  )
 	), document.getElementById('app'));
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -33449,10 +33445,10 @@
 	var createStoreWithMiddleware = (0, _redux.applyMiddleware)(_reduxThunk2.default)(_redux.createStore);
 
 	function configureStore(initialState) {
-	  return createStoreWithMiddleware(itemsByTwitch, initialState);
+	  return createStoreWithMiddleware(_reducers2.default, initialState);
 	}
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "configureStore.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "configureStore.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -33485,7 +33481,41 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.itemsByTwitch = itemsByTwitch;
+
+	var _redux = __webpack_require__(297);
+
+	var _topGames = __webpack_require__(310);
+
+	var _topGames2 = _interopRequireDefault(_topGames);
+
+	var _streams = __webpack_require__(317);
+
+	var _streams2 = _interopRequireDefault(_streams);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _redux.combineReducers)({
+	  topGames: _topGames2.default,
+	  streams: _streams2.default
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = itemsByTwitch;
+
+	var _topGames = __webpack_require__(311);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -33494,562 +33524,38 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case 'REQUEST_GAMES':
+	    case _topGames.REQUEST_GAMES:
 	      return Object.assign({}, state, { isFetching: true });
-	    case 'RECEIVE_GAMES':
+	    case _topGames.RECEIVE_GAMES:
 	      return Object.assign({}, state, {
 	        isFetching: false,
-	        items: action.items
+	        items: action.items,
+	        lastUpdated: action.received
 	      });
+	    default:
+	      return state;
 	  }
-	}
+	};
 
 	function itemsByTwitch() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case 'REQUEST_GAMES':
-	    case 'RECEIVE_GAMES':
+	    case _topGames.REQUEST_GAMES:
+	    case _topGames.RECEIVE_GAMES:
 	      return Object.assign({}, state, _defineProperty({}, action.twitch, items(state[action.twitch], action)));
+	      return test;
+	    default:
+	      return state;
 	  }
-	}
+	};
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "topGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
-
-/***/ },
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var isReactClassish = __webpack_require__(311),
-	    isReactElementish = __webpack_require__(312);
-
-	function makeExportsHot(m, React) {
-	  if (isReactElementish(m.exports, React)) {
-	    // React elements are never valid React classes
-	    return false;
-	  }
-
-	  var freshExports = m.exports,
-	      exportsReactClass = isReactClassish(m.exports, React),
-	      foundReactClasses = false;
-
-	  if (exportsReactClass) {
-	    m.exports = m.makeHot(m.exports, '__MODULE_EXPORTS');
-	    foundReactClasses = true;
-	  }
-
-	  for (var key in m.exports) {
-	    if (!Object.prototype.hasOwnProperty.call(freshExports, key)) {
-	      continue;
-	    }
-
-	    if (exportsReactClass && key === 'type') {
-	      // React 0.12 also puts classes under `type` property for compat.
-	      // Skip to avoid updating twice.
-	      continue;
-	    }
-
-	    var value;
-	    try {
-	      value = freshExports[key];
-	    } catch (err) {
-	      continue;
-	    }
-
-	    if (!isReactClassish(value, React)) {
-	      continue;
-	    }
-
-	    if (Object.getOwnPropertyDescriptor(m.exports, key).writable) {
-	      m.exports[key] = m.makeHot(value, '__MODULE_EXPORTS_' + key);
-	      foundReactClasses = true;
-	    } else {
-	      console.warn("Can't make class " + key + " hot reloadable due to being read-only. To fix this you can try two solutions. First, you can exclude files or directories (for example, /node_modules/) using 'exclude' option in loader configuration. Second, if you are using Babel, you can enable loose mode for `es6.modules` using the 'loose' option. See: http://babeljs.io/docs/advanced/loose/ and http://babeljs.io/docs/usage/options/");
-	    }
-	  }
-
-	  return foundReactClasses;
-	}
-
-	module.exports = makeExportsHot;
-
 
 /***/ },
 /* 311 */
-/***/ function(module, exports) {
-
-	function hasRender(Class) {
-	  var prototype = Class.prototype;
-	  if (!prototype) {
-	    return false;
-	  }
-
-	  return typeof prototype.render === 'function';
-	}
-
-	function descendsFromReactComponent(Class, React) {
-	  if (!React.Component) {
-	    return false;
-	  }
-
-	  var Base = Object.getPrototypeOf(Class);
-	  while (Base) {
-	    if (Base === React.Component) {
-	      return true;
-	    }
-
-	    Base = Object.getPrototypeOf(Base);
-	  }
-
-	  return false;
-	}
-
-	function isReactClassish(Class, React) {
-	  if (typeof Class !== 'function') {
-	    return false;
-	  }
-
-	  // React 0.13
-	  if (hasRender(Class) || descendsFromReactComponent(Class, React)) {
-	    return true;
-	  }
-
-	  // React 0.12 and earlier
-	  if (Class.type && hasRender(Class.type)) {
-	    return true;
-	  }
-
-	  return false;
-	}
-
-	module.exports = isReactClassish;
-
-/***/ },
-/* 312 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var isReactClassish = __webpack_require__(311);
-
-	function isReactElementish(obj, React) {
-	  if (!obj) {
-	    return false;
-	  }
-
-	  return Object.prototype.toString.call(obj.props) === '[object Object]' &&
-	         isReactClassish(obj.type, React);
-	}
-
-	module.exports = isReactElementish;
-
-/***/ },
-/* 313 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(139);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _dummydata = __webpack_require__(314);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _react2.default.createClass({
-	  displayName: 'App',
-	  render: function render() {
-	    return _react2.default.cloneElement(this.props.children, { topGames: _dummydata.TopGames, streams: _dummydata.Streams });
-	  }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
-
-/***/ },
-/* 314 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var TopGames = exports.TopGames = [{
-	  "viewers": 119453,
-	  "channels": 1650,
-	  "game": {
-	    "name": "League of Legends",
-	    "_id": 21779,
-	    "giantbomb_id": 24024,
-	    "box": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-272x380.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-136x190.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-52x72.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-{width}x{height}.jpg"
-	    },
-	    "logo": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-logoart/League%20of%20Legends-240x144.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-logoart/League%20of%20Legends-120x72.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-logoart/League%20of%20Legends-60x36.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-logoart/League%20of%20Legends-{width}x{height}.jpg"
-	    },
-	    "_links": {}
-	  }
-	}, {
-	  "viewers": 76007,
-	  "channels": 373,
-	  "game": {
-	    "name": "Hearthstone: Heroes of Warcraft",
-	    "_id": 138585,
-	    "giantbomb_id": 42033,
-	    "box": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-boxart/Hearthstone:%20Heroes%20of%20Warcraft-272x380.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-boxart/Hearthstone:%20Heroes%20of%20Warcraft-136x190.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-boxart/Hearthstone:%20Heroes%20of%20Warcraft-52x72.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-boxart/Hearthstone:%20Heroes%20of%20Warcraft-{width}x{height}.jpg"
-	    },
-	    "logo": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-logoart/Hearthstone:%20Heroes%20of%20Warcraft-240x144.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-logoart/Hearthstone:%20Heroes%20of%20Warcraft-120x72.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-logoart/Hearthstone:%20Heroes%20of%20Warcraft-60x36.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-logoart/Hearthstone:%20Heroes%20of%20Warcraft-{width}x{height}.jpg"
-	    },
-	    "_links": {}
-	  }
-	}, {
-	  "viewers": 51646,
-	  "channels": 726,
-	  "game": {
-	    "name": "Dota 2",
-	    "_id": 29595,
-	    "giantbomb_id": 32887,
-	    "box": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-boxart/Dota%202-272x380.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-boxart/Dota%202-136x190.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-boxart/Dota%202-52x72.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-boxart/Dota%202-{width}x{height}.jpg"
-	    },
-	    "logo": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-logoart/Dota%202-240x144.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-logoart/Dota%202-120x72.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-logoart/Dota%202-60x36.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-logoart/Dota%202-{width}x{height}.jpg"
-	    },
-	    "_links": {}
-	  }
-	}, {
-	  "viewers": 46730,
-	  "channels": 1126,
-	  "game": {
-	    "name": "Counter-Strike: Global Offensive",
-	    "_id": 32399,
-	    "giantbomb_id": 36113,
-	    "box": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-272x380.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-136x190.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-52x72.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-{width}x{height}.jpg"
-	    },
-	    "logo": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-240x144.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-120x72.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-60x36.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-{width}x{height}.jpg"
-	    },
-	    "_links": {}
-	  }
-	}, {
-	  "viewers": 16692,
-	  "channels": 336,
-	  "game": {
-	    "name": "FIFA 16",
-	    "_id": 489608,
-	    "giantbomb_id": 49601,
-	    "box": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-boxart/FIFA%2016-272x380.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-boxart/FIFA%2016-136x190.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-boxart/FIFA%2016-52x72.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-boxart/FIFA%2016-{width}x{height}.jpg"
-	    },
-	    "logo": {
-	      "large": "http://static-cdn.jtvnw.net/ttv-logoart/FIFA%2016-240x144.jpg",
-	      "medium": "http://static-cdn.jtvnw.net/ttv-logoart/FIFA%2016-120x72.jpg",
-	      "small": "http://static-cdn.jtvnw.net/ttv-logoart/FIFA%2016-60x36.jpg",
-	      "template": "http://static-cdn.jtvnw.net/ttv-logoart/FIFA%2016-{width}x{height}.jpg"
-	    },
-	    "_links": {}
-	  }
-	}];
-
-	var Streams = exports.Streams = [{
-	  "_id": 18867680688,
-	  "game": "Hearthstone: Heroes of Warcraft",
-	  "viewers": 15789,
-	  "created_at": "2016-01-13T15:02:01Z",
-	  "video_height": 1080,
-	  "average_fps": 60,
-	  "delay": 0,
-	  "is_playlist": false,
-	  "_links": {
-	    "self": "https://api.twitch.tv/kraken/streams/amazhs"
-	  },
-	  "preview": {
-	    "small": "http://static-cdn.jtvnw.net/previews-ttv/live_user_amazhs-80x45.jpg",
-	    "medium": "http://static-cdn.jtvnw.net/previews-ttv/live_user_amazhs-320x180.jpg",
-	    "large": "http://static-cdn.jtvnw.net/previews-ttv/live_user_amazhs-640x360.jpg",
-	    "template": "http://static-cdn.jtvnw.net/previews-ttv/live_user_amazhs-{width}x{height}.jpg"
-	  },
-	  "channel": {
-	    "mature": false,
-	    "status": "■AMAZ■ @ArchonAmazHS - Thanks for 100k Twitter Followers!!",
-	    "broadcaster_language": "en",
-	    "display_name": "AmazHS",
-	    "game": "Hearthstone: Heroes of Warcraft",
-	    "language": "en",
-	    "_id": 43356746,
-	    "name": "amazhs",
-	    "created_at": "2013-05-09T16:46:10Z",
-	    "updated_at": "2016-01-13T15:16:37Z",
-	    "delay": null,
-	    "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/amazhs-profile_image-128bb4f9fe96c7ba-300x300.png",
-	    "banner": null,
-	    "video_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/amazhs-channel_offline_image-88fdcf2f41bfe6cc-1920x1080.png",
-	    "background": null,
-	    "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/amazhs-profile_banner-ce0988eecbf48a80-480.jpeg",
-	    "profile_banner_background_color": null,
-	    "partner": true,
-	    "url": "http://www.twitch.tv/amazhs",
-	    "views": 46288347,
-	    "followers": 639725,
-	    "_links": {
-	      "self": "http://api.twitch.tv/kraken/channels/amazhs",
-	      "follows": "http://api.twitch.tv/kraken/channels/amazhs/follows",
-	      "commercial": "http://api.twitch.tv/kraken/channels/amazhs/commercial",
-	      "stream_key": "http://api.twitch.tv/kraken/channels/amazhs/stream_key",
-	      "chat": "http://api.twitch.tv/kraken/chat/amazhs",
-	      "features": "http://api.twitch.tv/kraken/channels/amazhs/features",
-	      "subscriptions": "http://api.twitch.tv/kraken/channels/amazhs/subscriptions",
-	      "editors": "http://api.twitch.tv/kraken/channels/amazhs/editors",
-	      "teams": "http://api.twitch.tv/kraken/channels/amazhs/teams",
-	      "videos": "http://api.twitch.tv/kraken/channels/amazhs/videos"
-	    }
-	  }
-	}, {
-	  "_id": 18866889552,
-	  "game": "Hearthstone: Heroes of Warcraft",
-	  "viewers": 11106,
-	  "created_at": "2016-01-13T14:04:39Z",
-	  "video_height": 1080,
-	  "average_fps": 60,
-	  "delay": 0,
-	  "is_playlist": false,
-	  "_links": {
-	    "self": "https://api.twitch.tv/kraken/streams/savjz"
-	  },
-	  "preview": {
-	    "small": "http://static-cdn.jtvnw.net/previews-ttv/live_user_savjz-80x45.jpg",
-	    "medium": "http://static-cdn.jtvnw.net/previews-ttv/live_user_savjz-320x180.jpg",
-	    "large": "http://static-cdn.jtvnw.net/previews-ttv/live_user_savjz-640x360.jpg",
-	    "template": "http://static-cdn.jtvnw.net/previews-ttv/live_user_savjz-{width}x{height}.jpg"
-	  },
-	  "channel": {
-	    "mature": false,
-	    "status": "Spiderman Hunter",
-	    "broadcaster_language": "en",
-	    "display_name": "Savjz",
-	    "game": "Hearthstone: Heroes of Warcraft",
-	    "language": "fi",
-	    "_id": 43131877,
-	    "name": "savjz",
-	    "created_at": "2013-05-03T12:27:19Z",
-	    "updated_at": "2016-01-13T15:17:48Z",
-	    "delay": null,
-	    "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/savjz-profile_image-fcb7a4314f7a9e31-300x300.jpeg",
-	    "banner": null,
-	    "video_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/savjz-channel_offline_image-dcb3c24332db47db-1920x1080.png",
-	    "background": null,
-	    "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/savjz-profile_banner-f40e12114643e09d-480.jpeg",
-	    "profile_banner_background_color": null,
-	    "partner": true,
-	    "url": "http://www.twitch.tv/savjz",
-	    "views": 7809271,
-	    "followers": 154646,
-	    "_links": {
-	      "self": "http://api.twitch.tv/kraken/channels/savjz",
-	      "follows": "http://api.twitch.tv/kraken/channels/savjz/follows",
-	      "commercial": "http://api.twitch.tv/kraken/channels/savjz/commercial",
-	      "stream_key": "http://api.twitch.tv/kraken/channels/savjz/stream_key",
-	      "chat": "http://api.twitch.tv/kraken/chat/savjz",
-	      "features": "http://api.twitch.tv/kraken/channels/savjz/features",
-	      "subscriptions": "http://api.twitch.tv/kraken/channels/savjz/subscriptions",
-	      "editors": "http://api.twitch.tv/kraken/channels/savjz/editors",
-	      "teams": "http://api.twitch.tv/kraken/channels/savjz/teams",
-	      "videos": "http://api.twitch.tv/kraken/channels/savjz/videos"
-	    }
-	  }
-	}, {
-	  "_id": 18866326704,
-	  "game": "Hearthstone: Heroes of Warcraft",
-	  "viewers": 7114,
-	  "created_at": "2016-01-13T13:19:30Z",
-	  "video_height": 1080,
-	  "average_fps": 30,
-	  "delay": 0,
-	  "is_playlist": false,
-	  "_links": {
-	    "self": "https://api.twitch.tv/kraken/streams/roger9527"
-	  },
-	  "preview": {
-	    "small": "http://static-cdn.jtvnw.net/previews-ttv/live_user_roger9527-80x45.jpg",
-	    "medium": "http://static-cdn.jtvnw.net/previews-ttv/live_user_roger9527-320x180.jpg",
-	    "large": "http://static-cdn.jtvnw.net/previews-ttv/live_user_roger9527-640x360.jpg",
-	    "template": "http://static-cdn.jtvnw.net/previews-ttv/live_user_roger9527-{width}x{height}.jpg"
-	  },
-	  "channel": {
-	    "mature": false,
-	    "status": "[Asia] Roger 亞服天梯，這麼冷，不要雞雞歪歪，嗅 !",
-	    "broadcaster_language": "zh",
-	    "display_name": "Roger9527",
-	    "game": "Hearthstone: Heroes of Warcraft",
-	    "language": "zh-tw",
-	    "_id": 65653595,
-	    "name": "roger9527",
-	    "created_at": "2014-07-05T05:11:49Z",
-	    "updated_at": "2016-01-13T15:16:05Z",
-	    "delay": null,
-	    "logo": "https://static-cdn.jtvnw.net/jtv_user_pictures/roger9527-profile_image-e6cccadfeba28124-300x300.jpeg",
-	    "banner": null,
-	    "video_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/roger9527-channel_offline_image-b3b35cec1f8652c7-1920x1080.jpeg",
-	    "background": null,
-	    "profile_banner": "https://static-cdn.jtvnw.net/jtv_user_pictures/roger9527-profile_banner-41ba859692b0b1ea-480.jpeg",
-	    "profile_banner_background_color": null,
-	    "partner": true,
-	    "url": "http://www.twitch.tv/roger9527",
-	    "views": 1688285,
-	    "followers": 30220,
-	    "_links": {
-	      "self": "http://api.twitch.tv/kraken/channels/roger9527",
-	      "follows": "http://api.twitch.tv/kraken/channels/roger9527/follows",
-	      "commercial": "http://api.twitch.tv/kraken/channels/roger9527/commercial",
-	      "stream_key": "http://api.twitch.tv/kraken/channels/roger9527/stream_key",
-	      "chat": "http://api.twitch.tv/kraken/chat/roger9527",
-	      "features": "http://api.twitch.tv/kraken/channels/roger9527/features",
-	      "subscriptions": "http://api.twitch.tv/kraken/channels/roger9527/subscriptions",
-	      "editors": "http://api.twitch.tv/kraken/channels/roger9527/editors",
-	      "teams": "http://api.twitch.tv/kraken/channels/roger9527/teams",
-	      "videos": "http://api.twitch.tv/kraken/channels/roger9527/videos"
-	    }
-	  }
-	}];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "dummydata.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
-
-/***/ },
-/* 315 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(139);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(290);
-
-	var _actions = __webpack_require__(316);
-
-	var _Game = __webpack_require__(319);
-
-	var _Game2 = _interopRequireDefault(_Game);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TopGames = function (_Component) {
-	  _inherits(TopGames, _Component);
-
-	  function TopGames() {
-	    _classCallCheck(this, TopGames);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TopGames).apply(this, arguments));
-	  }
-
-	  _createClass(TopGames, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var dispatch = this.props.dispatch;
-
-	      console.log("dispatching topgames");
-	      dispatch((0, _actions.fetchData)('TopGames', 'https://api.twitch.tv/kraken/games/top'));
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row text-center' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'TopGames'
-	        ),
-	        this.props.games.map(function (item) {
-	          return _react2.default.createElement(_Game2.default, { game: item.game, key: item.game._id });
-	        })
-	      );
-	    }
-	  }]);
-
-	  return TopGames;
-	}(_react.Component);
-
-	exports.default = TopGames;
-
-	function mapStateToProps(state) {
-	  var itemsByTwitch = state.itemsByTwitch;
-
-	  var _ref = itemsByTwitch['TopGames'] || { isFetching: true, items: [] };
-
-	  var isFetching = _ref.isFetching;
-	  var games = _ref.items;
-
-	  return {
-	    games: games,
-	    isFetching: isFetching
-	  };
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TopGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
-
-/***/ },
-/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34061,14 +33567,17 @@
 	});
 	exports.RECEIVE_GAMES = exports.REQUEST_GAMES = undefined;
 	exports.fetchData = fetchData;
+	exports.fetchIfNeeded = fetchIfNeeded;
 
-	var _isomorphicFetch = __webpack_require__(317);
+	var _isomorphicFetch = __webpack_require__(312);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var REQUEST_GAMES = exports.REQUEST_GAMES = 'REQUEST_GAMES';
+	var RECEIVE_GAMES = exports.RECEIVE_GAMES = 'RECEIVE_GAMES';
+
 	function requestGames(twitch) {
 	  return {
 	    type: REQUEST_GAMES,
@@ -34076,17 +33585,16 @@
 	  };
 	};
 
-	var RECEIVE_GAMES = exports.RECEIVE_GAMES = 'RECEIVE_GAMES';
 	function receiveGames(twitch, json) {
-	  console.log(json);
 	  return {
 	    type: RECEIVE_GAMES,
 	    twitch: twitch,
-	    games: json
+	    items: json.top,
+	    received: Date.now()
 	  };
 	};
 
-	// Calling this function with store.dispatch('TopGames');
+	// Calling this function with store.dispatch('TopGames', 'url');
 	function fetchData(twitch, url) {
 	  return function (dispatch) {
 	    dispatch(requestGames(twitch));
@@ -34096,25 +33604,46 @@
 	      return dispatch(receiveGames(twitch, json));
 	    });
 	  };
+	};
+
+	function shouldFetch(state, twitch) {
+	  var items = state[twitch];
+	  if (!items || Date.now() - items.lastUpdated > 500000) {
+	    return true;
+	  } else if (items.isFetching) {
+	    return false;
+	  } else {
+	    return false;
+	  }
 	}
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "actions.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	function fetchIfNeeded(twitch, url) {
+	  return function (dispatch, getState) {
+	    if (shouldFetch(getState(), twitch)) {
+	      return dispatch(fetchData(twitch, url));
+	    } else {
+	      return Promise.resolve();
+	    }
+	  };
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "topGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 317 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(318);
+	__webpack_require__(313);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 318 */
+/* 313 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -34501,12 +34030,363 @@
 
 
 /***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var isReactClassish = __webpack_require__(315),
+	    isReactElementish = __webpack_require__(316);
+
+	function makeExportsHot(m, React) {
+	  if (isReactElementish(m.exports, React)) {
+	    // React elements are never valid React classes
+	    return false;
+	  }
+
+	  var freshExports = m.exports,
+	      exportsReactClass = isReactClassish(m.exports, React),
+	      foundReactClasses = false;
+
+	  if (exportsReactClass) {
+	    m.exports = m.makeHot(m.exports, '__MODULE_EXPORTS');
+	    foundReactClasses = true;
+	  }
+
+	  for (var key in m.exports) {
+	    if (!Object.prototype.hasOwnProperty.call(freshExports, key)) {
+	      continue;
+	    }
+
+	    if (exportsReactClass && key === 'type') {
+	      // React 0.12 also puts classes under `type` property for compat.
+	      // Skip to avoid updating twice.
+	      continue;
+	    }
+
+	    var value;
+	    try {
+	      value = freshExports[key];
+	    } catch (err) {
+	      continue;
+	    }
+
+	    if (!isReactClassish(value, React)) {
+	      continue;
+	    }
+
+	    if (Object.getOwnPropertyDescriptor(m.exports, key).writable) {
+	      m.exports[key] = m.makeHot(value, '__MODULE_EXPORTS_' + key);
+	      foundReactClasses = true;
+	    } else {
+	      console.warn("Can't make class " + key + " hot reloadable due to being read-only. To fix this you can try two solutions. First, you can exclude files or directories (for example, /node_modules/) using 'exclude' option in loader configuration. Second, if you are using Babel, you can enable loose mode for `es6.modules` using the 'loose' option. See: http://babeljs.io/docs/advanced/loose/ and http://babeljs.io/docs/usage/options/");
+	    }
+	  }
+
+	  return foundReactClasses;
+	}
+
+	module.exports = makeExportsHot;
+
+
+/***/ },
+/* 315 */
+/***/ function(module, exports) {
+
+	function hasRender(Class) {
+	  var prototype = Class.prototype;
+	  if (!prototype) {
+	    return false;
+	  }
+
+	  return typeof prototype.render === 'function';
+	}
+
+	function descendsFromReactComponent(Class, React) {
+	  if (!React.Component) {
+	    return false;
+	  }
+
+	  var Base = Object.getPrototypeOf(Class);
+	  while (Base) {
+	    if (Base === React.Component) {
+	      return true;
+	    }
+
+	    Base = Object.getPrototypeOf(Base);
+	  }
+
+	  return false;
+	}
+
+	function isReactClassish(Class, React) {
+	  if (typeof Class !== 'function') {
+	    return false;
+	  }
+
+	  // React 0.13
+	  if (hasRender(Class) || descendsFromReactComponent(Class, React)) {
+	    return true;
+	  }
+
+	  // React 0.12 and earlier
+	  if (Class.type && hasRender(Class.type)) {
+	    return true;
+	  }
+
+	  return false;
+	}
+
+	module.exports = isReactClassish;
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isReactClassish = __webpack_require__(315);
+
+	function isReactElementish(obj, React) {
+	  if (!obj) {
+	    return false;
+	  }
+
+	  return Object.prototype.toString.call(obj.props) === '[object Object]' &&
+	         isReactClassish(obj.type, React);
+	}
+
+	module.exports = isReactElementish;
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = streams;
+
+	var _streams = __webpack_require__(318);
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function stream() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: false, items: [] } : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _streams.REQUEST_STREAMS:
+	      return Object.assign({}, state, { isFetching: true });
+	    case _streams.RECEIVE_STREAMS:
+	      return Object.assign({}, state, {
+	        isFetching: false,
+	        items: action.items,
+	        lastUpdate: action.received
+	      });
+	    default:
+	      return state;
+	  }
+	};
+
+	function streams() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case _streams.REQUEST_STREAMS:
+	    case _streams.RECEIVE_STREAMS:
+	      return Object.assign({}, state, _defineProperty({}, action.game, stream(state[action.game], action)));
+	    default:
+	      return state;
+	  }
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 318 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.RECEIVE_STREAMS = exports.REQUEST_STREAMS = undefined;
+	exports.fetchData = fetchData;
+
+	var _isomorphicFetch = __webpack_require__(312);
+
+	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var REQUEST_STREAMS = exports.REQUEST_STREAMS = 'REQUEST_STREAMS';
+	var RECEIVE_STREAMS = exports.RECEIVE_STREAMS = 'RECEIVE_STREAMS';
+
+	function requestStreams(game) {
+	  return {
+	    type: REQUEST_STREAMS,
+	    game: game
+	  };
+	};
+
+	function receiveGames(game, json) {
+	  return {
+	    type: RECEIVE_STREAMS,
+	    game: game,
+	    items: json,
+	    received: Date.now()
+	  };
+	};
+
+	function fetchData(game, url) {
+	  return function (dispatch) {
+	    dispatch(requestStreams(game));
+	    return (0, _isomorphicFetch2.default)(url).then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      return dispatch(receiveGames(game, json.streams));
+	    });
+	  };
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
 /* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	"use strict";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'App',
+	  render: function render() {
+	    return this.props.children;
+	  }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "App.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(290);
+
+	var _topGames = __webpack_require__(311);
+
+	var _Game = __webpack_require__(321);
+
+	var _Game2 = _interopRequireDefault(_Game);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TopGames = function (_Component) {
+	  _inherits(TopGames, _Component);
+
+	  function TopGames() {
+	    _classCallCheck(this, TopGames);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TopGames).apply(this, arguments));
+	  }
+
+	  _createClass(TopGames, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var dispatch = this.props.dispatch;
+
+	      dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row text-center' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'TopGames'
+	        ),
+	        this.props.games.map(function (item) {
+	          return _react2.default.createElement(_Game2.default, { game: item.game, key: item.game._id });
+	        })
+	      );
+	    }
+	  }]);
+
+	  return TopGames;
+	}(_react.Component);
+
+	;
+
+	function mapStateToProps(state) {
+	  var topGames = state.topGames;
+
+	  var _ref = topGames.games || { isFetching: true, items: [] };
+
+	  var isFetching = _ref.isFetching;
+	  var games = _ref.items;
+
+	  return {
+	    games: games,
+	    isFetching: isFetching
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopGames);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TopGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -34536,17 +34416,29 @@
 	  }
 
 	  _createClass(Game, [{
-	    key: "render",
+	    key: 'getEncodedLink',
+	    value: function getEncodedLink() {
+	      var game = this.props.game;
+
+	      var uri = '#/streams/' + game.name;
+	      return encodeURI(uri);
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      var game = this.props.game;
 
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "col-xs-12 col-sm-6 col-lg-4" },
+	        'div',
+	        { className: 'col-xs-12 col-sm-6 col-lg-4' },
 	        _react2.default.createElement(
-	          "div",
+	          'div',
 	          { key: game._id },
-	          _react2.default.createElement("img", { src: game.box.large, alt: "stream twitch game" })
+	          _react2.default.createElement(
+	            'a',
+	            { href: this.getEncodedLink() },
+	            _react2.default.createElement('img', { src: game.box.large, alt: 'stream twitch game' })
+	          )
 	        )
 	      );
 	    }
@@ -34557,11 +34449,11 @@
 
 	exports.default = Game;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Game.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Game.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34578,9 +34470,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stream = __webpack_require__(321);
+	var _Stream = __webpack_require__(323);
 
 	var _Stream2 = _interopRequireDefault(_Stream);
+
+	var _reactRedux = __webpack_require__(290);
+
+	var _streams = __webpack_require__(318);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34600,13 +34496,21 @@
 	  }
 
 	  _createClass(Streams, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var dispatch = this.props.dispatch;
+	      var game = this.props.params.game;
+
+	      var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
+	      dispatch((0, _streams.fetchData)(game, uri));
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(this.props.params.game);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'row text-center' },
-	        this.props.streams.map(function (stream) {
+	        this.props.gameStreams.map(function (stream) {
 	          return _react2.default.createElement(_Stream2.default, { stream: stream, key: stream._id });
 	        })
 	      );
@@ -34616,13 +34520,28 @@
 	  return Streams;
 	}(_react.Component);
 
-	exports.default = Streams;
+	function mapStateToProps(state, props) {
+	  var streams = state.streams;
+	  var game = props.routeParams.game;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	  var _ref = streams[game] || { isFetching: true, items: [] };
+
+	  var isFetching = _ref.isFetching;
+	  var gameStreams = _ref.items;
+
+	  return {
+	    isFetching: isFetching,
+	    gameStreams: gameStreams
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Streams);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34691,7 +34610,7 @@
 
 	exports.default = Stream;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(310); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Stream.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(314); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Stream.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }

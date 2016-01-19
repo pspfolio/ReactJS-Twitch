@@ -1,1 +1,2 @@
-- Reducer for streams
+- UnitTest for stream reducer
+- Remove dummydata

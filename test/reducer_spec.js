@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {itemsByTwitch} from '../src/reducers';
+import itemsByTwitch from '../src/reducers/topGames';
 
 describe('reducer', () => {
 
@@ -9,7 +9,7 @@ describe('reducer', () => {
       twitch: 'TopGames',
       items: [{Name: 'Stream1'}, {Name: 'Stream2'}]
     };
-
+    console.log(itemsByTwitch);
     var nextState = itemsByTwitch(undefined, action);
     expect(nextState.TopGames.items.length).to.equal(2);
   }),
@@ -34,7 +34,7 @@ describe('reducer', () => {
         items: []
       }
     };
-    
+
     var action = {
       type: 'RECEIVE_GAMES',
       twitch: 'TopGames',
