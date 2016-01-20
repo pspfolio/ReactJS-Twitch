@@ -1,0 +1,30 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+  line-height: 24px;
+}
+
+
+
+
+
+/******************
+    NAVIGATION
+*******************/
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 64px;
+  background-color: #00bcd4;
+  padding: 12px 24px 0 24px;
+  z-index: 1000;
+}
+
+nav h2 {
+  color: white;
+  font-weight: 300;
+}
