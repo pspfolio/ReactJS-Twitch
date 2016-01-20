@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Stream from './Stream';
+import Stream from '../components/Stream';
 import {connect} from 'react-redux';
 import {fetchData} from '../actions/streams';
 

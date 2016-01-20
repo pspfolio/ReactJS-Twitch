@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a5de0cfa333fe729dc5e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7efaefb052895ae436a7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8056,6 +8056,8 @@
 	var _Streams2 = _interopRequireDefault(_Streams);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//import Frontpage from './containers/Frontpage';
 
 	var routes = _react2.default.createElement(
 	  _reactRouter.Route,
@@ -34266,7 +34268,7 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -34279,9 +34281,26 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createClass({
-	  displayName: 'App',
+	  displayName: "App",
 	  render: function render() {
-	    return this.props.children;
+	    return _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement(
+	        "nav",
+	        null,
+	        _react2.default.createElement(
+	          "h3",
+	          null,
+	          "Redux Twitch"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "container cont" },
+	        this.props.children
+	      )
+	    );
 	  }
 	});
 

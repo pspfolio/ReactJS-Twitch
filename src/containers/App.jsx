@@ -5,9 +5,11 @@ export default React.createClass({
     return(
       <div>
         <nav>
-          <h2>Redux Twitch</h2>
+          <h3>Redux Twitch</h3>
         </nav>
-        {this.props.children}
+        <div className="container cont">
+          {this.props.children}
+        </div>
       </div>
     );
   }

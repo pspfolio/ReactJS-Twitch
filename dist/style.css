@@ -19,12 +19,24 @@ nav {
   top: 0;
   width: 100%;
   min-height: 64px;
-  background-color: #00bcd4;
+  background-color: #546E7A;
   padding: 12px 24px 0 24px;
   z-index: 1000;
 }
 
-nav h2 {
+nav h3 {
   color: white;
   font-weight: 300;
+  font-size: 24px;
+}
+
+
+
+
+
+/******************
+    Container
+*******************/
+.cont {
+  padding-top: 64px;
 }

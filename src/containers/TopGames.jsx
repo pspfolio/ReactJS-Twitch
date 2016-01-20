@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchData, fetchIfNeeded} from '../actions/topGames';
-import Game from './Game';
+import Game from '../components/Game';
 
 class TopGames extends Component {
   componentDidMount() {

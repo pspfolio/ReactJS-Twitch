@@ -3,9 +3,10 @@ import ReactDom from 'react-dom';
 import Router, {Route} from 'react-router';
 import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
-import App from './components/App';
-import TopGames from './components/TopGames';
-import Streams from './components/Streams';
+import App from './containers/App';
+import TopGames from './containers/TopGames';
+import Streams from './containers/Streams';
+//import Frontpage from './containers/Frontpage';
 
 const routes = <Route component={App}>
   <Route path="/" component={TopGames} />
