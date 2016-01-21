@@ -1,0 +1,32 @@
+/******************
+    NAVIGATION
+*******************/
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 64px;
+  background-color: #6441A5;
+  padding: 12px 24px 0 24px;
+  z-index: 1000;
+  h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 24px;
+  }
+}
+
+
+
+
+
+
+
+/******************
+    Container
+*******************/
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 64px;
+}

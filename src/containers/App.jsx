@@ -1,3 +1,4 @@
+import '../styles/containers/App.scss';
 import React from 'react';
 
 export default React.createClass({
@@ -5,9 +6,8 @@ export default React.createClass({
     return(
       <div>
         <nav>
-          <h3>Redux Twitch</h3>
         </nav>
-        <div className="container cont">
+        <div className="container-full">
           {this.props.children}
         </div>
       </div>

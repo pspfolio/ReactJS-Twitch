@@ -1,9 +1,12 @@
-import { Component } from 'react';
+import '../styles/containers/FrontPage.scss';
+import React, { Component } from 'react';
 
-export default FrontPage extends Component {
+export default class FrontPage extends Component {
   render() {
     return(
-      <h2>Ne tekee sen nenällä</h2>
+      <div className="frontpage-top">
+        <h3>Twitch with ReactJS and Redux</h3>
+      </div>
     )
   }
 }
