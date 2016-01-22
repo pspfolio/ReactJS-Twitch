@@ -6,6 +6,7 @@ export default React.createClass({
     return(
       <div>
         <nav>
+          <i className="ion-navicon"></i>
         </nav>
         <div className="container-full">
           {this.props.children}

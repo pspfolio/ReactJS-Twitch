@@ -9,10 +9,9 @@ nav {
   background-color: #6441A5;
   padding: 12px 24px 0 24px;
   z-index: 1000;
-  h3 {
+  .ion-navicon {
+    font-size: 32px;
     color: white;
-    font-weight: 300;
-    font-size: 24px;
   }
 }
 

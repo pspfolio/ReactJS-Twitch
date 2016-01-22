@@ -5,9 +5,12 @@
   background-color: #6441A5;
   min-height: 500px;
   text-align: center;
-}
+  h1 {
+    color: white;
+    font-weight: 300;
+  }
 
-.frontpage-top h3 {
-  color: white;
-  font-weight: 300;
+  .frontpage-logo {
+    padding-top: 120px;
+  }
 }
