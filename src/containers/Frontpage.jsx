@@ -1,24 +1,49 @@
 import '../styles/containers/FrontPage.scss';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchIfNeeded } from '../actions/topGames';
+import Game from '../components/Game';
 
-var twitchLogoPath = '../images/twitch_logo.png';
+var images = {
+  twitchLogoPath: '../images/twitch_logo.png'
+}
 
-export default class FrontPage extends Component {
+class FrontPage extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'))
+  }
   render() {
     return(
       <div>
         <div className="frontpage-top">
           <div className="frontpage-logo">
-            <img src={twitchLogoPath} alt="twitch logo" />
+            <img src={images.twitchLogoPath} alt="twitch logo" />
             <h1>Twitch with ReactJS and Redux</h1>
           </div>
         </div>
-        <div className="container">
+        <div className="container container-frontpage">
           <div className="row">
             <h3>Top Games</h3>
+            <p className="lead-text">Find more games <a href='#/topGames'>here</a></p>
+            {this.props.games.map(item =>
+              <Game game={item.game} key={item.game._id} />
+            )}
           </div>
         </div>
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  const { topGames } = state;
+  const { isFetching, items: games } = topGames.games || { isFetching: false, items: [] };
+
+  return {
+    isFetching,
+    games: games.slice(0,3)
+  }
+}
+
+export default connect(mapStateToProps)(FrontPage);

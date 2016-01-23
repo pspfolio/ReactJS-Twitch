@@ -1,3 +1,6 @@
+$black-font: rgba(0,0,0,.87);
+$grey-font: rgba(0,0,0,.54);
+
 /******************
     Frontpage
 *******************/
@@ -13,4 +16,12 @@
   .frontpage-logo {
     padding-top: 120px;
   }
+}
+
+.container-frontpage h3 {
+  color: $black-font;
+}
+
+.lead-text {
+  color: $grey-font;
 }

@@ -22,7 +22,6 @@ export default function itemsByTwitch(state = {}, action) {
       return Object.assign({}, state, {
         [action.twitch]: items(state[action.twitch], action)
       });
-      return test;
     default:
       return state
   }
