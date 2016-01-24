@@ -1,6 +1,7 @@
 import { REQUEST_STREAMS, RECEIVE_STREAMS } from '../actions/streams';
+import { initState } from '../utils/initState';
 
-function stream(state = {isFetching: false, items: []}, action) {
+function stream(state = initState, action) {
   switch (action.type) {
     case REQUEST_STREAMS:
       return Object.assign({}, state, {isFetching: true});

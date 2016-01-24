@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f22d4135a2a35fcdfe19"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cd8ae4e9f5efc6fc6a70"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -33876,8 +33876,13 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+	var initState = {
+	  isFetching: false,
+	  items: []
+	};
+
 	function items() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: false, items: [] } : arguments[0];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initState : arguments[0];
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -33902,7 +33907,6 @@
 	    case _topGames.REQUEST_GAMES:
 	    case _topGames.RECEIVE_GAMES:
 	      return Object.assign({}, state, _defineProperty({}, action.twitch, items(state[action.twitch], action)));
-	      return test;
 	    default:
 	      return state;
 	  }
@@ -34643,7 +34647,11 @@
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement('nav', null),
+	      _react2.default.createElement(
+	        'nav',
+	        null,
+	        _react2.default.createElement('i', { className: 'ion-navicon' })
+	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'container-full' },
@@ -34691,7 +34699,7 @@
 
 
 	// module
-	exports.push([module.id, "/******************\r\n    NAVIGATION\r\n*******************/\nnav {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  min-height: 64px;\n  background-color: #6441A5;\n  padding: 12px 24px 0 24px;\n  z-index: 1000; }\n  nav h3 {\n    color: white;\n    font-weight: 300;\n    font-size: 24px; }\n\n/******************\r\n    Container\r\n*******************/\n.container-full {\n  margin: 0 auto;\n  width: 100%;\n  padding-top: 64px; }\n", ""]);
+	exports.push([module.id, "/******************\r\n    NAVIGATION\r\n*******************/\nnav {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  min-height: 64px;\n  background-color: #6441A5;\n  padding: 12px 24px 0 24px;\n  z-index: 1000; }\n  nav .ion-navicon {\n    font-size: 32px;\n    color: white; }\n\n/******************\r\n    Container\r\n*******************/\n.container-full {\n  margin: 0 auto;\n  width: 100%;\n  padding-top: 64px; }\n", ""]);
 
 	// exports
 
@@ -34828,6 +34836,7 @@
 	    value: function getEncodedLink() {
 	      var game = this.props.game;
 
+	      console.log("game");
 	      var uri = '#/streams/' + game.name;
 	      return encodeURI(uri);
 	    }
@@ -34840,13 +34849,9 @@
 	        'div',
 	        { className: 'col-xs-12 col-sm-6 col-lg-4' },
 	        _react2.default.createElement(
-	          'div',
-	          { key: game._id },
-	          _react2.default.createElement(
-	            'a',
-	            { href: this.getEncodedLink() },
-	            _react2.default.createElement('img', { src: game.box.large, alt: 'stream twitch game' })
-	          )
+	          'a',
+	          { href: this.getEncodedLink() },
+	          _react2.default.createElement('img', { src: game.box.large, alt: 'stream twitch game' })
 	        )
 	      );
 	    }
@@ -35041,6 +35046,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(294);
+
+	var _topGames = __webpack_require__(315);
+
+	var _Game = __webpack_require__(327);
+
+	var _Game2 = _interopRequireDefault(_Game);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35049,7 +35062,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var twitchLogoPath = '../images/twitch_logo.png';
+	var images = {
+	  twitchLogoPath: '../images/twitch_logo.png'
+	};
 
 	var FrontPage = function (_Component) {
 	  _inherits(FrontPage, _Component);
@@ -35061,17 +35076,58 @@
 	  }
 
 	  _createClass(FrontPage, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var dispatch = this.props.dispatch;
+
+	      dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'frontpage-top' },
+	        null,
 	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Twitch with ReactJS and Redux'
+	          'div',
+	          { className: 'frontpage-top' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'frontpage-logo' },
+	            _react2.default.createElement('img', { src: images.twitchLogoPath, alt: 'twitch logo' }),
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'Twitch with ReactJS and Redux'
+	            )
+	          )
 	        ),
-	        _react2.default.createElement('img', { src: twitchLogoPath, alt: 'twitch logo' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container container-frontpage' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Top Games'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'lead-text' },
+	              'Find more games ',
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#/topGames' },
+	                'here'
+	              )
+	            ),
+	            this.props.games.map(function (item) {
+	              return _react2.default.createElement(_Game2.default, { game: item.game, key: item.game._id });
+	            })
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -35079,7 +35135,21 @@
 	  return FrontPage;
 	}(_react.Component);
 
-	exports.default = FrontPage;
+	function mapStateToProps(state) {
+	  var topGames = state.topGames;
+
+	  var _ref = topGames.games || { isFetching: false, items: [] };
+
+	  var isFetching = _ref.isFetching;
+	  var games = _ref.items;
+
+	  return {
+	    isFetching: isFetching,
+	    games: games.slice(0, 3)
+	  };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(FrontPage);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Frontpage.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
@@ -35119,7 +35189,7 @@
 
 
 	// module
-	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n\n.frontpage-top h3 {\n  color: white;\n  font-weight: 300; }\n", ""]);
+	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n  .frontpage-top h1 {\n    color: white;\n    font-weight: 300; }\n  .frontpage-top .frontpage-logo {\n    padding-top: 120px; }\n\n.container-frontpage h3 {\n  color: rgba(0, 0, 0, 0.87); }\n\n.lead-text {\n  color: rgba(0, 0, 0, 0.54); }\n", ""]);
 
 	// exports
 
