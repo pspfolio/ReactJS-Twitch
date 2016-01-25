@@ -2,7 +2,7 @@ import '../styles/containers/FrontPage.scss';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchIfNeeded } from '../actions/topGames';
-import Game from '../components/Game';
+import Games from '../components/Games';
 
 var images = {
   twitchLogoPath: '../images/twitch_logo.png'
@@ -14,6 +14,7 @@ class FrontPage extends Component {
     dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'))
   }
   render() {
+    const { games } = this.props;
     return(
       <div>
         <div className="frontpage-top">
@@ -26,9 +27,7 @@ class FrontPage extends Component {
           <div className="row">
             <h3>Top Games</h3>
             <p className="lead-text">Find more games <a href='#/topGames'>here</a></p>
-            {this.props.games.map(item =>
-              <Game game={item.game} key={item.game._id} />
-            )}
+            <Games games={games} />
           </div>
         </div>
       </div>
@@ -39,7 +38,6 @@ class FrontPage extends Component {
 function mapStateToProps(state) {
   const { topGames } = state;
   const { isFetching, items: games } = topGames.games || { isFetching: false, items: [] };
-
   return {
     isFetching,
     games: games.slice(0,3)

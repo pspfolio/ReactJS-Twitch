@@ -9,7 +9,7 @@ function stream(state = initState, action) {
       return Object.assign({}, state, {
         isFetching: false,
         items: action.items,
-        lastUpdate: action.received
+        lastUpdated: action.received
       });
     default:
       return state;

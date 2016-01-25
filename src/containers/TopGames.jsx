@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchData, fetchIfNeeded} from '../actions/topGames';
-import Game from '../components/Game';
+import Games from '../components/Games';
 
 class TopGames extends Component {
   componentDidMount() {
@@ -9,12 +9,11 @@ class TopGames extends Component {
     dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
   }
   render() {
+    const { games } = this.props;
     return (
       <div className="row text-center">
         <h2>TopGames</h2>
-          {this.props.games.map(item =>
-            <Game game={item.game} key={item.game._id} />
-          )}
+        <Games games={games} />
       </div>
     )
   }

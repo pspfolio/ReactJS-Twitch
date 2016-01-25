@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cd8ae4e9f5efc6fc6a70"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e3faae3ab5e9336309dd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8045,19 +8045,19 @@
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
-	var _App = __webpack_require__(323);
+	var _App = __webpack_require__(324);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _TopGames = __webpack_require__(326);
+	var _TopGames = __webpack_require__(327);
 
 	var _TopGames2 = _interopRequireDefault(_TopGames);
 
-	var _Streams = __webpack_require__(328);
+	var _Streams = __webpack_require__(330);
 
 	var _Streams2 = _interopRequireDefault(_Streams);
 
-	var _Frontpage = __webpack_require__(330);
+	var _Frontpage = __webpack_require__(332);
 
 	var _Frontpage2 = _interopRequireDefault(_Frontpage);
 
@@ -33845,7 +33845,7 @@
 
 	var _topGames2 = _interopRequireDefault(_topGames);
 
-	var _streams = __webpack_require__(321);
+	var _streams = __webpack_require__(322);
 
 	var _streams2 = _interopRequireDefault(_streams);
 
@@ -33874,15 +33874,12 @@
 
 	var _topGames = __webpack_require__(315);
 
+	var _initState = __webpack_require__(321);
+
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var initState = {
-	  isFetching: false,
-	  items: []
-	};
-
 	function items() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? initState : arguments[0];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _initState.initState : arguments[0];
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -34523,6 +34520,25 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var initState = exports.initState = {
+	  isFetching: false,
+	  items: []
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "initState.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -34530,12 +34546,14 @@
 	});
 	exports.default = streams;
 
-	var _streams = __webpack_require__(322);
+	var _streams = __webpack_require__(323);
+
+	var _initState = __webpack_require__(321);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function stream() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? { isFetching: false, items: [] } : arguments[0];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _initState.initState : arguments[0];
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -34545,7 +34563,7 @@
 	      return Object.assign({}, state, {
 	        isFetching: false,
 	        items: action.items,
-	        lastUpdate: action.received
+	        lastUpdated: action.received
 	      });
 	    default:
 	      return state;
@@ -34569,7 +34587,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34622,7 +34640,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34633,7 +34651,7 @@
 	  value: true
 	});
 
-	__webpack_require__(324);
+	__webpack_require__(325);
 
 	var _react = __webpack_require__(139);
 
@@ -34665,13 +34683,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(325);
+	var content = __webpack_require__(326);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(246)(content, {});
@@ -34680,8 +34698,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(325, function() {
-				var newContent = __webpack_require__(325);
+			module.hot.accept(326, function() {
+				var newContent = __webpack_require__(326);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -34691,7 +34709,7 @@
 	}
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(245)();
@@ -34705,7 +34723,7 @@
 
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34726,9 +34744,9 @@
 
 	var _topGames = __webpack_require__(315);
 
-	var _Game = __webpack_require__(327);
+	var _Games = __webpack_require__(328);
 
-	var _Game2 = _interopRequireDefault(_Game);
+	var _Games2 = _interopRequireDefault(_Games);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34757,6 +34775,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var games = this.props.games;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'row text-center' },
@@ -34765,9 +34785,7 @@
 	          null,
 	          'TopGames'
 	        ),
-	        this.props.games.map(function (item) {
-	          return _react2.default.createElement(_Game2.default, { game: item.game, key: item.game._id });
-	        })
+	        _react2.default.createElement(_Games2.default, { games: games })
 	      );
 	    }
 	  }]);
@@ -34797,7 +34815,65 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 327 */
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Game = __webpack_require__(329);
+
+	var _Game2 = _interopRequireDefault(_Game);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Games = function (_Component) {
+	  _inherits(Games, _Component);
+
+	  function Games() {
+	    _classCallCheck(this, Games);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Games).apply(this, arguments));
+	  }
+
+	  _createClass(Games, [{
+	    key: 'render',
+	    value: function render() {
+	      var games = this.props.games;
+
+	      return games.map(function (game) {
+	        _react2.default.createElement(_Game2.default, { name: game.name, imgUrl: game.box.large });
+	      });
+	    }
+	  }]);
+
+	  return Games;
+	}(_react.Component);
+
+	exports.default = Games;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Games.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34834,16 +34910,15 @@
 	  _createClass(Game, [{
 	    key: 'getEncodedLink',
 	    value: function getEncodedLink() {
-	      var game = this.props.game;
+	      var name = this.props.name;
 
-	      console.log("game");
-	      var uri = '#/streams/' + game.name;
+	      var uri = '#/streams/' + name;
 	      return encodeURI(uri);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var game = this.props.game;
+	      var imgUrl = this.props.imgUrl;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -34851,7 +34926,7 @@
 	        _react2.default.createElement(
 	          'a',
 	          { href: this.getEncodedLink() },
-	          _react2.default.createElement('img', { src: game.box.large, alt: 'stream twitch game' })
+	          _react2.default.createElement('img', { src: imgUrl, alt: 'stream twitch game' })
 	        )
 	      );
 	    }
@@ -34866,7 +34941,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34883,13 +34958,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stream = __webpack_require__(329);
+	var _Stream = __webpack_require__(331);
 
 	var _Stream2 = _interopRequireDefault(_Stream);
 
 	var _reactRedux = __webpack_require__(294);
 
-	var _streams = __webpack_require__(322);
+	var _streams = __webpack_require__(323);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34954,7 +35029,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 329 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35027,7 +35102,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 330 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35040,7 +35115,7 @@
 	  value: true
 	});
 
-	__webpack_require__(331);
+	__webpack_require__(333);
 
 	var _react = __webpack_require__(139);
 
@@ -35050,7 +35125,7 @@
 
 	var _topGames = __webpack_require__(315);
 
-	var _Game = __webpack_require__(327);
+	var _Game = __webpack_require__(329);
 
 	var _Game2 = _interopRequireDefault(_Game);
 
@@ -35155,13 +35230,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 331 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(332);
+	var content = __webpack_require__(334);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(246)(content, {});
@@ -35170,8 +35245,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(332, function() {
-				var newContent = __webpack_require__(332);
+			module.hot.accept(334, function() {
+				var newContent = __webpack_require__(334);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -35181,7 +35256,7 @@
 	}
 
 /***/ },
-/* 332 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(245)();
