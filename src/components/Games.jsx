@@ -6,9 +6,9 @@ export default class Games extends Component {
     const { games } = this.props;
     return(
       <div>
-        {games.map(game => {
-          return <Game name={game.game.name} imgUrl={game.game.box.large} />
-        })}
+        {games.map(game =>
+          <Game name={game.game.name} imgUrl={game.game.box.large} key={game.game._id} />
+        )}
       </div>
     )
   }

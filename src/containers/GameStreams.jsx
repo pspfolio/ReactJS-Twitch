@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Stream from '../components/Stream';
+import Streams from '../components/Streams';
 import {connect} from 'react-redux';
 import {fetchData} from '../actions/streams';
 
-class Streams extends Component {
+class GameStreams extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     const { game } = this.props.params;
@@ -11,12 +11,9 @@ class Streams extends Component {
     dispatch(fetchData(game, uri));
   }
   render() {
+    const { gameStreams } = this.props;
     return(
-      <div className="row text-center">
-        {this.props.gameStreams.map(stream =>
-          <Stream stream={stream} key={stream._id}></Stream>
-        )}
-      </div>
+      <Streams streams={gameStreams} />
     )
   }
 }
@@ -31,4 +28,4 @@ function mapStateToProps(state, props) {
   };
 }
 
-export default connect(mapStateToProps)(Streams);
+export default connect(mapStateToProps)(GameStreams);

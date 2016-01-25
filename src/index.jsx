@@ -6,13 +6,13 @@ import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 import App from './containers/App';
 import TopGames from './containers/TopGames';
-import Streams from './containers/Streams';
+import GameStreams from './containers/GameStreams';
 import Frontpage from './containers/Frontpage';
 
 const routes = <Route component={App}>
   <Route path="/" component={Frontpage} />
   <Route path="/topGames" component={TopGames} />
-  <Route path="/streams/:game" component={Streams} />
+  <Route path="/streams/:game" component={GameStreams} />
 </Route>;
 
 const store = configureStore();
