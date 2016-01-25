@@ -13,3 +13,7 @@ export default class Games extends Component {
     )
   }
 }
+
+Games.propTypes = {
+  games: React.PropTypes.array
+}
