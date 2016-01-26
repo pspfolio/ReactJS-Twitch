@@ -40,7 +40,7 @@ function mapStateToProps(state) {
   const { isFetching, items: games } = topGames.games || { isFetching: false, items: [] };
   return {
     isFetching,
-    games: games.slice(0,6)
+    games: games.slice(0,4)
   }
 }
 

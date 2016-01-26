@@ -4,7 +4,6 @@ import ButtonTwitch from './ButtonTwitch';
 
 export default class Games extends Component {
   render() {
-    console.log(this.props);
     const { games, nextUrl, handleMoreGames } = this.props;
     return(
       <div>
