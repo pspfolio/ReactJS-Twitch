@@ -11,7 +11,7 @@ var images = {
 class FrontPage extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'))
+    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
   }
   render() {
     const { games } = this.props;
@@ -40,7 +40,7 @@ function mapStateToProps(state) {
   const { isFetching, items: games } = topGames.games || { isFetching: false, items: [] };
   return {
     isFetching,
-    games: games.slice(0,3)
+    games: games.slice(0,6)
   }
 }
 

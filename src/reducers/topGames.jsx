@@ -8,7 +8,8 @@ function items(state = initState, action) {
     case RECEIVE_GAMES:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.items,
+        items: state.items.concat(action.items),
+        nextUrl: action.nextUrl,
         lastUpdated: action.received
       });
     default:

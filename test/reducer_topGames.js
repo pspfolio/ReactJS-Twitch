@@ -45,7 +45,7 @@ describe('TopGames Reducer', () => {
     expect(nextState.TopGames.isFetching).to.be.false;
   }),
 
-  it('RECEIVE_GAMES replaces old items', () => {
+  it('RECEIVE_GAMES adding items to items list', () => {
     var initState = {
       TopGames: {
         isFetching: false,
@@ -61,7 +61,8 @@ describe('TopGames Reducer', () => {
 
       var nextState = itemsByTwitch(initState, action);
       expect(nextState).not.to.be.null;
-      expect(nextState.TopGames.items[1].Name).to.equal('Stream4');
+      expect(nextState.TopGames.items[1].Name).to.equal('Stream2');
+      expect(nextState.TopGames.items[3].Name).to.equal('Stream4');
   }),
 
   it('REQUEST_GAMES sets isFething to true', () => {
