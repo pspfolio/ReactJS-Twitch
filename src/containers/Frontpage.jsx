@@ -9,12 +9,8 @@ var images = {
 }
 
 class FrontPage extends Component {
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
-  }
   render() {
-    const { games } = this.props;
+    const { games, dispatch } = this.props;
     return(
       <div>
         <div className="frontpage-top">
@@ -27,7 +23,7 @@ class FrontPage extends Component {
           <div className="row">
             <h3>Top Games</h3>
             <p className="lead-text">Find more games <a href='#/topGames'>here</a></p>
-            <Games games={games} />
+            <Games games={games} dispatch={dispatch} />
           </div>
         </div>
       </div>

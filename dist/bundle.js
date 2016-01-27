@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "637da5c177f5826efb31"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b59a1d0215a16fd98d75"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8053,11 +8053,11 @@
 
 	var _TopGames2 = _interopRequireDefault(_TopGames);
 
-	var _GameStreams = __webpack_require__(330);
+	var _GameStreams = __webpack_require__(331);
 
 	var _GameStreams2 = _interopRequireDefault(_GameStreams);
 
-	var _Frontpage = __webpack_require__(333);
+	var _Frontpage = __webpack_require__(334);
 
 	var _Frontpage2 = _interopRequireDefault(_Frontpage);
 
@@ -33888,7 +33888,8 @@
 	    case _topGames.RECEIVE_GAMES:
 	      return Object.assign({}, state, {
 	        isFetching: false,
-	        items: action.items,
+	        items: state.items.concat(action.items),
+	        nextUrl: action.nextUrl,
 	        lastUpdated: action.received
 	      });
 	    default:
@@ -33947,6 +33948,7 @@
 	  return {
 	    type: RECEIVE_GAMES,
 	    twitch: twitch,
+	    nextUrl: json._links.next,
 	    items: json.top,
 	    received: Date.now()
 	  };
@@ -33959,14 +33961,14 @@
 	    return (0, _isomorphicFetch2.default)(url).then(function (response) {
 	      return response.json();
 	    }).then(function (json) {
-	      return dispatch(receiveGames(twitch, json));
+	      dispatch(receiveGames(twitch, json));
 	    });
 	  };
 	};
 
-	function shouldFetch(state, twitch) {
-	  var items = state[twitch];
-	  if (!items || Date.now() - items.lastUpdated > 500000) {
+	function shouldFetch(state) {
+	  var items = state['topGames'];
+	  if (Object.keys(items).length === 0 || Date.now() - items.lastUpdated > 500000) {
 	    return true;
 	  } else if (items.isFetching) {
 	    return false;
@@ -34766,26 +34768,17 @@
 	  }
 
 	  _createClass(TopGames, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var dispatch = this.props.dispatch;
-
-	      dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var games = this.props.games;
-
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row text-center' },
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'h2',
 	          null,
 	          'TopGames'
 	        ),
-	        _react2.default.createElement(_Games2.default, { games: games })
+	        _react2.default.createElement(_Games2.default, this.props)
 	      );
 	    }
 	  }]);
@@ -34798,14 +34791,16 @@
 	function mapStateToProps(state) {
 	  var topGames = state.topGames;
 
-	  var _ref = topGames.games || { isFetching: true, items: [] };
+	  var _ref = topGames.games || { isFetching: true, items: [], nextUrl: '' };
 
 	  var isFetching = _ref.isFetching;
 	  var games = _ref.items;
+	  var nextUrl = _ref.nextUrl;
 
 	  return {
 	    games: games,
-	    isFetching: isFetching
+	    isFetching: isFetching,
+	    nextUrl: nextUrl
 	  };
 	};
 
@@ -34825,7 +34820,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(139);
@@ -34836,6 +34831,10 @@
 
 	var _Game2 = _interopRequireDefault(_Game);
 
+	var _ButtonTwitch = __webpack_require__(330);
+
+	var _ButtonTwitch2 = _interopRequireDefault(_ButtonTwitch);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34845,36 +34844,67 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Games = function (_Component) {
-	  _inherits(Games, _Component);
+	    _inherits(Games, _Component);
 
-	  function Games() {
-	    _classCallCheck(this, Games);
+	    function Games(props) {
+	        _classCallCheck(this, Games);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Games).apply(this, arguments));
-	  }
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Games).call(this, props));
 
-	  _createClass(Games, [{
-	    key: 'render',
-	    value: function render() {
-	      var games = this.props.games;
-
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        games.map(function (game) {
-	          return _react2.default.createElement(_Game2.default, { name: game.game.name, imgUrl: game.game.box.large, key: game.game._id });
-	        })
-	      );
+	        _this.handleMoreGames = _this.handleMoreGames.bind(_this);
+	        return _this;
 	    }
-	  }]);
 
-	  return Games;
+	    _createClass(Games, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var dispatch = this.props.dispatch;
+
+	            dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
+	        }
+	    }, {
+	        key: 'handleMoreGames',
+	        value: function handleMoreGames() {
+	            var _props = this.props;
+	            var dispatch = _props.dispatch;
+	            var nextUrl = _props.nextUrl;
+
+	            dispatch(fetchData('games', nextUrl));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props2 = this.props;
+	            var games = _props2.games;
+	            var nextUrl = _props2.nextUrl;
+	            var handleMoreGames = _props2.handleMoreGames;
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row text-center' },
+	                    games.map(function (game) {
+	                        return _react2.default.createElement(_Game2.default, { name: game.game.name, imgUrl: game.game.box.large, key: game.game._id + game.viewers });
+	                    })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row text-center' },
+	                    nextUrl ? _react2.default.createElement(_ButtonTwitch2.default, { clickHandler: handleMoreGames, text: 'More Games' }) : null
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Games;
 	}(_react.Component);
 
 	exports.default = Games;
 
 	Games.propTypes = {
-	  games: _react2.default.PropTypes.array
+	    games: _react2.default.PropTypes.array
 	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Games.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -34930,7 +34960,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'col-xs-12 col-sm-6 col-lg-4' },
+	        { className: 'col-xs-12 col-sm-4 col-lg-3' },
 	        _react2.default.createElement(
 	          'a',
 	          { href: this.getEncodedLink() },
@@ -34954,6 +34984,64 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ButtonTwitch = function (_Component) {
+	  _inherits(ButtonTwitch, _Component);
+
+	  function ButtonTwitch() {
+	    _classCallCheck(this, ButtonTwitch);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonTwitch).apply(this, arguments));
+	  }
+
+	  _createClass(ButtonTwitch, [{
+	    key: "render",
+	    value: function render() {
+	      var _props = this.props;
+	      var clickHandler = _props.clickHandler;
+	      var text = _props.text;
+
+	      return _react2.default.createElement(
+	        "button",
+	        { className: "btn btn-primary btn-twitch", onClick: clickHandler },
+	        text
+	      );
+	    }
+	  }]);
+
+	  return ButtonTwitch;
+	}(_react.Component);
+
+	exports.default = ButtonTwitch;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ButtonTwitch.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -34966,7 +35054,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Streams = __webpack_require__(331);
+	var _Streams = __webpack_require__(332);
 
 	var _Streams2 = _interopRequireDefault(_Streams);
 
@@ -35033,7 +35121,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35050,7 +35138,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stream = __webpack_require__(332);
+	var _Stream = __webpack_require__(333);
 
 	var _Stream2 = _interopRequireDefault(_Stream);
 
@@ -35095,7 +35183,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35168,7 +35256,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35181,7 +35269,7 @@
 	  value: true
 	});
 
-	__webpack_require__(334);
+	__webpack_require__(335);
 
 	var _react = __webpack_require__(139);
 
@@ -35286,7 +35374,7 @@
 
 	  return {
 	    isFetching: isFetching,
-	    games: games.slice(0, 3)
+	    games: games.slice(0, 4)
 	  };
 	}
 
@@ -35296,13 +35384,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(335);
+	var content = __webpack_require__(336);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(246)(content, {});
@@ -35311,8 +35399,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(335, function() {
-				var newContent = __webpack_require__(335);
+			module.hot.accept(336, function() {
+				var newContent = __webpack_require__(336);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -35322,7 +35410,7 @@
 	}
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(245)();
@@ -35330,7 +35418,7 @@
 
 
 	// module
-	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n  .frontpage-top h1 {\n    color: white;\n    font-weight: 300; }\n  .frontpage-top .frontpage-logo {\n    padding-top: 120px; }\n\n.container-frontpage h3 {\n  color: rgba(0, 0, 0, 0.87); }\n\n.lead-text {\n  color: rgba(0, 0, 0, 0.54); }\n", ""]);
+	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n  .frontpage-top h1 {\n    color: white;\n    font-weight: 300; }\n  .frontpage-top .frontpage-logo {\n    padding-top: 120px; }\n\n.container-frontpage {\n  padding-bottom: 100px; }\n  .container-frontpage h3 {\n    color: rgba(0, 0, 0, 0.87); }\n\n.lead-text {\n  color: rgba(0, 0, 0, 0.54); }\n", ""]);
 
 	// exports
 

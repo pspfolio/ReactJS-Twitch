@@ -1,32 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchData, fetchIfNeeded} from '../actions/topGames';
 import Games from '../components/Games';
 
 class TopGames extends Component {
-  constructor(props) {
-    super(props);
-    this.handleMoreGames = this.handleMoreGames.bind(this);
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
-  }
-
-  handleMoreGames() {
-    const { dispatch, nextUrl } = this.props;
-    dispatch(fetchData('games', nextUrl));
-  }
-
   render() {
-    const { games } = this.props;
-    return (
-      <div className="container">
-          <h2>TopGames</h2>
-          <Games {...this.props} handleMoreGames={this.handleMoreGames} />
-      </div>
-    )
+      const { games, dispatch } = this.props;
+      return (
+          <div className="container">
+              <h2>TopGames</h2>
+              <Games {...this.props} />
+          </div>
+      )
   }
 };
 
