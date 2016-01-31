@@ -22,12 +22,12 @@ class FrontPage extends Component {
         <div className="container container-frontpage">
           <div className="row">
             <h3>Top Games</h3>
-            <p className="lead-text">Find more games <a href='#/topGames'>here</a></p>
+            <p className="lead-text">Find more games <a href='#/games'>here</a></p>
             <Games games={topGames.games} dispatch={dispatch} />
           </div>
-          <div className="row">
+          <div className="row whitespace-top">
             <h3>Top Streams</h3>
-            <p className="lead-text">Find more streams <a href='#/topStreams'>here</a></p>
+            <p className="lead-text">Find more streams <a href='#/streams'>here</a></p>
             <TopStreams streams={topStreams.streams} dispatch={dispatch} />
           </div>
         </div>

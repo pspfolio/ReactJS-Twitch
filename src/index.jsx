@@ -11,7 +11,7 @@ import Frontpage from './containers/Frontpage';
 
 const routes = <Route component={App}>
   <Route path="/" component={Frontpage} />
-  <Route path="/topGames" component={Games} />
+  <Route path="/games" component={Games} />
   <Route path="/streams/:game" component={StreamsByGame} />
 </Route>;
 
