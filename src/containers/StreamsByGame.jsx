@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Streams from '../components/Streams';
+import StreamsByGame from '../components/StreamsByGame';
 import {connect} from 'react-redux';
 class GameStreams extends Component {
   render() {
     const { gameStreams, dispatch } = this.props;
     const { game } = this.props.params;
     return(
-      <Streams streams={gameStreams} dispatch={dispatch} gameName={game} />
+      <StreamsByGame streams={gameStreams} dispatch={dispatch} gameName={game} />
     )
   }
 };
