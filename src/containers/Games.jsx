@@ -15,9 +15,9 @@ class TopGames extends Component {
 
 function mapStateToProps(state) {
   const { games } = state;
-  const { isFetching, items: topGames, nextUrl} = games.games || {isFetching: true, items: [], nextUrl: ''};
+  const { isFetching, items: topGames, nextUrl} = games.topGames || {isFetching: true, items: [], nextUrl: ''};
   return {
-    games: topGames,
+    games : topGames,
     isFetching,
     nextUrl
   }

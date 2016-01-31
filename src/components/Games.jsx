@@ -6,7 +6,7 @@ import ButtonTwitch from './ButtonTwitch';
 export default class Games extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
-        dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
+        dispatch(fetchIfNeeded('topGames', 'https://api.twitch.tv/kraken/games/top'));
     }
 
     render() {

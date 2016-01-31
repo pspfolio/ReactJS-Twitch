@@ -37,8 +37,9 @@ class FrontPage extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state);
   const { games, streams } = state;
-  const { isFetching : gamesFetching, items: topGames } = games.games || { isFetching: false, items: [] };
+  const { isFetching : gamesFetching, items: topGames } = games.topGames || { isFetching: false, items: [] };
   const { isFetching : streamsFetching, items: topStreams } = streams.topStreams || { isFetching: false, items: [] };
   return {
       topGames: {

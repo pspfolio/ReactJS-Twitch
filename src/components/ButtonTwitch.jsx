@@ -9,7 +9,7 @@ export default class ButtonTwitch extends Component {
 
     handleMoreGames() {
       const { dispatch, nextUrl } = this.props;
-      dispatch(fetchData('games', nextUrl));
+      dispatch(fetchData('topGames', nextUrl));
     }
 
     render() {
