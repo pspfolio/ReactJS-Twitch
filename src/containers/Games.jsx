@@ -4,7 +4,6 @@ import Games from '../components/Games';
 
 class TopGames extends Component {
   render() {
-      const { topGames, dispatch } = this.props;
       return (
           <div className="container">
               <h2>TopGames</h2>

@@ -7,12 +7,14 @@ import configureStore from './store/configureStore';
 import App from './containers/App';
 import Games from './containers/Games';
 import StreamsByGame from './containers/StreamsByGame';
+import Streams from './containers/Streams';
 import Frontpage from './containers/Frontpage';
 
 const routes = <Route component={App}>
   <Route path="/" component={Frontpage} />
   <Route path="/games" component={Games} />
   <Route path="/streams/:game" component={StreamsByGame} />
+  <Route path="/streams" component={Streams} />
 </Route>;
 
 const store = configureStore();

@@ -2,7 +2,7 @@ import '../styles/containers/FrontPage.scss';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Games from '../components/Games';
-import TopStreams from '../components/TopStreams';
+import Streams from '../components/Streams';
 
 var images = {
   twitchLogoPath: '../images/twitch_logo.png'
@@ -28,7 +28,7 @@ class FrontPage extends Component {
           <div className="row whitespace-top">
             <h3>Top Streams</h3>
             <p className="lead-text">Find more streams <a href='#/streams'>here</a></p>
-            <TopStreams streams={topStreams.streams} dispatch={dispatch} />
+            <Streams streams={topStreams.streams} dispatch={dispatch} />
           </div>
         </div>
       </div>
