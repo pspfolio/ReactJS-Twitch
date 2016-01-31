@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import topGames from './topGames';
+import games from './games';
 import streams from './streams';
 
 export default combineReducers({
-  topGames,
+  games,
   streams
 });

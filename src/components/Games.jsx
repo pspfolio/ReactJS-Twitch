@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Game from './Game';
-import { fetchIfNeeded } from '../actions/topGames';
+import { fetchIfNeeded } from '../actions/games';
 import ButtonTwitch from './ButtonTwitch';
 
 export default class Games extends Component {

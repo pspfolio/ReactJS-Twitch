@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b59a1d0215a16fd98d75"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "822b4982fe21f785cc0f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -34744,8 +34744,6 @@
 
 	var _reactRedux = __webpack_require__(294);
 
-	var _topGames = __webpack_require__(315);
-
 	var _Games = __webpack_require__(328);
 
 	var _Games2 = _interopRequireDefault(_Games);
@@ -34770,6 +34768,10 @@
 	  _createClass(TopGames, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props;
+	      var games = _props.games;
+	      var dispatch = _props.dispatch;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container' },
@@ -34831,6 +34833,8 @@
 
 	var _Game2 = _interopRequireDefault(_Game);
 
+	var _topGames = __webpack_require__(315);
+
 	var _ButtonTwitch = __webpack_require__(330);
 
 	var _ButtonTwitch2 = _interopRequireDefault(_ButtonTwitch);
@@ -34846,13 +34850,10 @@
 	var Games = function (_Component) {
 	    _inherits(Games, _Component);
 
-	    function Games(props) {
+	    function Games() {
 	        _classCallCheck(this, Games);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Games).call(this, props));
-
-	        _this.handleMoreGames = _this.handleMoreGames.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Games).apply(this, arguments));
 	    }
 
 	    _createClass(Games, [{
@@ -34860,24 +34861,15 @@
 	        value: function componentDidMount() {
 	            var dispatch = this.props.dispatch;
 
-	            dispatch(fetchIfNeeded('games', 'https://api.twitch.tv/kraken/games/top'));
-	        }
-	    }, {
-	        key: 'handleMoreGames',
-	        value: function handleMoreGames() {
-	            var _props = this.props;
-	            var dispatch = _props.dispatch;
-	            var nextUrl = _props.nextUrl;
-
-	            dispatch(fetchData('games', nextUrl));
+	            dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _props2 = this.props;
-	            var games = _props2.games;
-	            var nextUrl = _props2.nextUrl;
-	            var handleMoreGames = _props2.handleMoreGames;
+	            var _props = this.props;
+	            var games = _props.games;
+	            var nextUrl = _props.nextUrl;
+	            var dispatch = _props.dispatch;
 
 	            return _react2.default.createElement(
 	                'div',
@@ -34892,7 +34884,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row text-center' },
-	                    nextUrl ? _react2.default.createElement(_ButtonTwitch2.default, { clickHandler: handleMoreGames, text: 'More Games' }) : null
+	                    nextUrl ? _react2.default.createElement(_ButtonTwitch2.default, { text: 'More Games', dispatch: dispatch, nextUrl: nextUrl }) : null
 	                )
 	            );
 	        }
@@ -34921,7 +34913,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(139);
@@ -34937,40 +34929,40 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Game = function (_Component) {
-	  _inherits(Game, _Component);
+	    _inherits(Game, _Component);
 
-	  function Game() {
-	    _classCallCheck(this, Game);
+	    function Game() {
+	        _classCallCheck(this, Game);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Game).apply(this, arguments));
-	  }
-
-	  _createClass(Game, [{
-	    key: 'getEncodedLink',
-	    value: function getEncodedLink() {
-	      var name = this.props.name;
-
-	      var uri = '#/streams/' + name;
-	      return encodeURI(uri);
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Game).apply(this, arguments));
 	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var imgUrl = this.props.imgUrl;
 
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'col-xs-12 col-sm-4 col-lg-3' },
-	        _react2.default.createElement(
-	          'a',
-	          { href: this.getEncodedLink() },
-	          _react2.default.createElement('img', { src: imgUrl, alt: 'stream twitch game' })
-	        )
-	      );
-	    }
-	  }]);
+	    _createClass(Game, [{
+	        key: 'getEncodedLink',
+	        value: function getEncodedLink() {
+	            var name = this.props.name;
 
-	  return Game;
+	            var uri = '#/streams/' + name;
+	            return encodeURI(uri);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var imgUrl = this.props.imgUrl;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'col-xs-12 col-sm-4 col-lg-3' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: this.getEncodedLink() },
+	                    _react2.default.createElement('img', { src: imgUrl, alt: 'stream twitch game' })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Game;
 	}(_react.Component);
 
 	exports.default = Game;
@@ -34984,17 +34976,19 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(139);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _topGames = __webpack_require__(315);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35005,30 +34999,42 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var ButtonTwitch = function (_Component) {
-	  _inherits(ButtonTwitch, _Component);
+	    _inherits(ButtonTwitch, _Component);
 
-	  function ButtonTwitch() {
-	    _classCallCheck(this, ButtonTwitch);
+	    function ButtonTwitch(props) {
+	        _classCallCheck(this, ButtonTwitch);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonTwitch).apply(this, arguments));
-	  }
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonTwitch).call(this, props));
 
-	  _createClass(ButtonTwitch, [{
-	    key: "render",
-	    value: function render() {
-	      var _props = this.props;
-	      var clickHandler = _props.clickHandler;
-	      var text = _props.text;
-
-	      return _react2.default.createElement(
-	        "button",
-	        { className: "btn btn-primary btn-twitch", onClick: clickHandler },
-	        text
-	      );
+	        _this.handleMoreGames = _this.handleMoreGames.bind(_this);
+	        return _this;
 	    }
-	  }]);
 
-	  return ButtonTwitch;
+	    _createClass(ButtonTwitch, [{
+	        key: 'handleMoreGames',
+	        value: function handleMoreGames() {
+	            var _props = this.props;
+	            var dispatch = _props.dispatch;
+	            var nextUrl = _props.nextUrl;
+
+	            dispatch((0, _topGames.fetchData)('games', nextUrl));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props2 = this.props;
+	            var clickHandler = _props2.clickHandler;
+	            var text = _props2.text;
+
+	            return _react2.default.createElement(
+	                'button',
+	                { className: 'btn btn-primary btn-twitch', onClick: this.handleMoreGames },
+	                text
+	            );
+	        }
+	    }]);
+
+	    return ButtonTwitch;
 	}(_react.Component);
 
 	exports.default = ButtonTwitch;
@@ -35060,8 +35066,6 @@
 
 	var _reactRedux = __webpack_require__(294);
 
-	var _streams = __webpack_require__(323);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35080,20 +35084,14 @@
 	  }
 
 	  _createClass(GameStreams, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var dispatch = this.props.dispatch;
-	      var game = this.props.params.game;
-
-	      var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
-	      dispatch((0, _streams.fetchData)(game, uri));
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var gameStreams = this.props.gameStreams;
+	      var _props = this.props;
+	      var gameStreams = _props.gameStreams;
+	      var dispatch = _props.dispatch;
+	      var game = this.props.params.game;
 
-	      return _react2.default.createElement(_Streams2.default, { streams: gameStreams });
+	      return _react2.default.createElement(_Streams2.default, { streams: gameStreams, dispatch: dispatch, gameName: game });
 	    }
 	  }]);
 
@@ -35131,7 +35129,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(139);
@@ -35142,6 +35140,8 @@
 
 	var _Stream2 = _interopRequireDefault(_Stream);
 
+	var _streams = __webpack_require__(323);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35151,30 +35151,41 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Streams = function (_Component) {
-	  _inherits(Streams, _Component);
+	    _inherits(Streams, _Component);
 
-	  function Streams() {
-	    _classCallCheck(this, Streams);
+	    function Streams() {
+	        _classCallCheck(this, Streams);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Streams).apply(this, arguments));
-	  }
-
-	  _createClass(Streams, [{
-	    key: 'render',
-	    value: function render() {
-	      var streams = this.props.streams;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'row text-center' },
-	        streams.map(function (stream) {
-	          return _react2.default.createElement(_Stream2.default, { stream: stream, key: stream._id });
-	        })
-	      );
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Streams).apply(this, arguments));
 	    }
-	  }]);
 
-	  return Streams;
+	    _createClass(Streams, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _props = this.props;
+	            var dispatch = _props.dispatch;
+	            var gameName = _props.gameName;
+
+	            console.log(gameName);
+	            var uri = 'https://api.twitch.tv/kraken/streams?game=' + gameName;
+	            dispatch((0, _streams.fetchData)(gameName, uri));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var streams = this.props.streams;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row text-center' },
+	                streams.map(function (stream) {
+	                    return _react2.default.createElement(_Stream2.default, { stream: stream, key: stream._id });
+	                })
+	            );
+	        }
+	    }]);
+
+	    return Streams;
 	}(_react.Component);
 
 	exports.default = Streams;
@@ -35305,16 +35316,11 @@
 	  }
 
 	  _createClass(FrontPage, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var dispatch = this.props.dispatch;
-
-	      dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var games = this.props.games;
+	      var _props = this.props;
+	      var games = _props.games;
+	      var dispatch = _props.dispatch;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -35354,7 +35360,7 @@
 	                'here'
 	              )
 	            ),
-	            _react2.default.createElement(_Games2.default, { games: games })
+	            _react2.default.createElement(_Games2.default, { games: games, dispatch: dispatch })
 	          )
 	        )
 	      );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchData } from '../actions/topGames';
+import { fetchData } from '../actions/games';
 
 export default class ButtonTwitch extends Component {
     constructor(props) {

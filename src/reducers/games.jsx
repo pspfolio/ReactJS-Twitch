@@ -1,4 +1,4 @@
-import { REQUEST_GAMES, RECEIVE_GAMES } from '../actions/topGames';
+import { REQUEST_GAMES, RECEIVE_GAMES } from '../actions/games';
 import { initState } from '../utils/initState';
 
 function items(state = initState, action) {

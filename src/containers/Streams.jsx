@@ -9,7 +9,7 @@ class GameStreams extends Component {
       <Streams streams={gameStreams} dispatch={dispatch} gameName={game} />
     )
   }
-}
+};
 
 function mapStateToProps(state, props) {
   const { streams } = state;
@@ -18,7 +18,7 @@ function mapStateToProps(state, props) {
   return {
     isFetching,
     gameStreams
-  };
-}
+  }
+};
 
 export default connect(mapStateToProps)(GameStreams);

@@ -34,7 +34,7 @@ export function fetchData(twitch, url) {
 };
 
 function shouldFetch(state){
-  const items = state['topGames'];
+  const items = state['games'];
   if(Object.keys(items).length === 0 || (Date.now() - items.lastUpdated) > 500000) {
     return true;
   } else if(items.isFetching) {

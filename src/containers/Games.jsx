@@ -4,7 +4,7 @@ import Games from '../components/Games';
 
 class TopGames extends Component {
   render() {
-      const { games, dispatch } = this.props;
+      const { topGames, dispatch } = this.props;
       return (
           <div className="container">
               <h2>TopGames</h2>
@@ -15,10 +15,10 @@ class TopGames extends Component {
 };
 
 function mapStateToProps(state) {
-  const { topGames } = state;
-  const { isFetching, items: games, nextUrl} = topGames.games || {isFetching: true, items: [], nextUrl: ''};
+  const { games } = state;
+  const { isFetching, items: topGames, nextUrl} = games.games || {isFetching: true, items: [], nextUrl: ''};
   return {
-    games,
+    games: topGames,
     isFetching,
     nextUrl
   }

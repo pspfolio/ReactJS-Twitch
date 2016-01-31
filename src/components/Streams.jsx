@@ -5,7 +5,6 @@ import { fetchData } from '../actions/streams';
 export default class Streams extends Component {
     componentDidMount() {
         const { dispatch, gameName } = this.props;
-        console.log(gameName)
         var uri = 'https://api.twitch.tv/kraken/streams?game=' + gameName;
         dispatch(fetchData(gameName, uri));
     }
