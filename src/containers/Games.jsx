@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { fetchIfNeeded, fetchData } from '../actions/games';
 import Games from '../components/Games';
+import Header from '../components/Header';
 
 class TopGames extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class TopGames extends Component {
     render() {
         return (
             <div className="container">
+                <Header headerText={'Top Games'} />
                 <Games {...this.props} handleMoreGames={this.handleMoreGames} />
             </div>
         )
