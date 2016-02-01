@@ -1,16 +1,16 @@
 import '../styles/containers/FrontPage.scss';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Games from '../components/Games';
-import Streams from '../components/Streams';
+import Games from './Games';
+import Streams from './Streams';
 
 var images = {
   twitchLogoPath: '../images/twitch_logo.png'
 }
 
-class FrontPage extends Component {
+export default class FrontPage extends Component {
   render() {
-    const { topGames, topStreams, dispatch } = this.props;
+    const limitResults = 4;
     return(
       <div>
         <div className="frontpage-top">
@@ -23,35 +23,15 @@ class FrontPage extends Component {
           <div className="row">
             <h3>Top Games</h3>
             <p className="lead-text">Find more games <a href='#/games'>here</a></p>
-            <Games games={topGames.games} dispatch={dispatch} />
+            <Games limitResults={limitResults} />
           </div>
           <div className="row whitespace-top">
             <h3>Top Streams</h3>
             <p className="lead-text">Find more streams <a href='#/streams'>here</a></p>
-            <Streams streams={topStreams.streams} dispatch={dispatch} />
+            <Streams limitResults={limitResults}/>
           </div>
         </div>
       </div>
     )
   }
 }
-
-function mapStateToProps(state) {
-    console.log(state);
-  const { games, streams } = state;
-  const { isFetching : gamesFetching, items: topGames } = games.topGames || { isFetching: false, items: [] };
-  const { isFetching : streamsFetching, items: topStreams } = streams.topStreams || { isFetching: false, items: [] };
-  return {
-      topGames: {
-          isFetching: gamesFetching,
-          games: topGames.slice(0,4)
-      },
-
-      topStreams: {
-          isFetching: streamsFetching,
-          streams: topStreams.slice(0,4)
-      }
-  }
-}
-
-export default connect(mapStateToProps)(FrontPage);

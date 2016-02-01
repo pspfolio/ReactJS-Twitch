@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import Game from './Game';
-import { fetchIfNeeded } from '../actions/games';
 import ButtonTwitch from './ButtonTwitch';
 
 export default class Games extends Component {
-    componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch(fetchIfNeeded('topGames', 'https://api.twitch.tv/kraken/games/top'));
-    }
-
     render() {
-      const { games, nextUrl, dispatch } = this.props;
+      const { games } = this.props;
       return(
           <div>
               <div className="row text-center">
@@ -19,7 +13,7 @@ export default class Games extends Component {
                   )}
               </div>
               <div className="row text-center">
-                  {nextUrl ? <ButtonTwitch text={'More Games'} dispatch={dispatch} nextUrl={nextUrl} /> : null }
+                  <ButtonTwitch text={'More Games'} clickHandler={this.props.handleMoreGames} />
               </div>
           </div>
       )
