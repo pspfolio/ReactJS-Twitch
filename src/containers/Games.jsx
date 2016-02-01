@@ -20,6 +20,7 @@ class TopGames extends Component {
         const { dispatch, nextUrl } = this.props;
         dispatch(fetchData('topGames', nextUrl));
     }
+
     render() {
         const { limitResults } = this.props;
         return (

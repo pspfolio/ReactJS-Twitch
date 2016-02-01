@@ -27,9 +27,7 @@ export function fetchData(twitch, url) {
     dispatch(requestGames(twitch));
     return fetch(url).then(response => response.json()).then((json) => {
       dispatch(receiveGames(twitch, json))
-    }
-
-    )
+    })
   }
 };
 
