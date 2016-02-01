@@ -21,9 +21,10 @@ class TopGames extends Component {
         dispatch(fetchData('topGames', nextUrl));
     }
     render() {
+        const { limitResults } = this.props;
         return (
             <div className="container">
-                <Header headerText={'Top Games'} />
+                { !limitResults ? <Header headerText={'Top Games'} /> : null }
                 <Games {...this.props} handleMoreGames={this.handleMoreGames} />
             </div>
         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchData} from '../actions/streams';
 import Streams from '../components/Streams';
+import Header from '../components/Header';
 
 class ListStreams extends Component {
     constructor(props) {
@@ -15,10 +16,13 @@ class ListStreams extends Component {
     }
 
     render() {
-        const { streams, dispatch } = this.props;
+        const { streams, limitResults, dispatch } = this.props;
         return(
-            <div className="row whitespace-top">
-              <Streams streams={streams} dispatch={dispatch} />
+            <div className="container">
+                <div className="row whitespace-top">
+                    { !limitResults ? <Header headerText={'Top Streams'} /> : null }
+                  <Streams streams={streams} dispatch={dispatch} />
+                </div>
             </div>
         )
     }
