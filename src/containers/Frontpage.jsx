@@ -25,13 +25,13 @@ export default class FrontPage extends Component {
             <Header headerText={'Top Games'}>
                 <p className="lead-text">Find more games <a href='#/games'>here</a></p>
             </Header>
-            <Games limitResults={limitResults} />
+            <Games limitResults={limitResults} frontpage={true} />
           </div>
           <div className="row whitespace-top">
             <Header headerText={'Top streams'}>
                 <p className="lead-text">Find more streams <a href='#/streams'>here</a></p>
             </Header>
-            <Streams limitResults={limitResults}/>
+            <Streams limitResults={limitResults} frontpage={true}/>
           </div>
         </div>
       </div>

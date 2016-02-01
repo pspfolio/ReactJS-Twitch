@@ -4,7 +4,7 @@ import ButtonTwitch from './ButtonTwitch';
 
 export default class Games extends Component {
     render() {
-      const { games } = this.props;
+      const { games, frontpage } = this.props;
       return(
           <div>
               <div className="row text-center">
@@ -13,7 +13,7 @@ export default class Games extends Component {
                   )}
               </div>
               <div className="row text-center">
-                  <ButtonTwitch text={'More Games'} clickHandler={this.props.handleMoreGames} />
+                  {!frontpage ? <ButtonTwitch text={'More Games'} clickHandler={this.props.handleMoreGames} /> : null }
               </div>
           </div>
       )

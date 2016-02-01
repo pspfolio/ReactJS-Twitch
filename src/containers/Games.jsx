@@ -33,9 +33,9 @@ class TopGames extends Component {
 
 function mapStateToProps(state, props) {
   const { games } = state;
-  const { limitResults } = props;
+  const { limitResults, frontpage } = props;
   const { isFetching, items: topGames, nextUrl} = games.topGames || {isFetching: true, items: [], nextUrl: ''};
-  const result = limitResults ? topGames.slice(0, limitResults) : topGames
+  const result = frontpage && limitResults ? topGames.slice(0, limitResults) : topGames
   return {
     games : result,
     isFetching,
