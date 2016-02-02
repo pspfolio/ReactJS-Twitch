@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "822b4982fe21f785cc0f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4a264e8431eee8059cb4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8049,15 +8049,19 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _TopGames = __webpack_require__(327);
+	var _Games = __webpack_require__(327);
 
-	var _TopGames2 = _interopRequireDefault(_TopGames);
+	var _Games2 = _interopRequireDefault(_Games);
 
-	var _GameStreams = __webpack_require__(331);
+	var _StreamsByGame = __webpack_require__(332);
 
-	var _GameStreams2 = _interopRequireDefault(_GameStreams);
+	var _StreamsByGame2 = _interopRequireDefault(_StreamsByGame);
 
-	var _Frontpage = __webpack_require__(334);
+	var _Streams = __webpack_require__(335);
+
+	var _Streams2 = _interopRequireDefault(_Streams);
+
+	var _Frontpage = __webpack_require__(337);
 
 	var _Frontpage2 = _interopRequireDefault(_Frontpage);
 
@@ -8067,8 +8071,9 @@
 	  _reactRouter.Route,
 	  { component: _App2.default },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Frontpage2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/topGames', component: _TopGames2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/streams/:game', component: _GameStreams2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/games', component: _Games2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/streams/:game', component: _StreamsByGame2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/streams', component: _Streams2.default })
 	);
 
 	var store = (0, _configureStore2.default)();
@@ -33841,9 +33846,9 @@
 
 	var _redux = __webpack_require__(301);
 
-	var _topGames = __webpack_require__(314);
+	var _games = __webpack_require__(314);
 
-	var _topGames2 = _interopRequireDefault(_topGames);
+	var _games2 = _interopRequireDefault(_games);
 
 	var _streams = __webpack_require__(322);
 
@@ -33852,7 +33857,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = (0, _redux.combineReducers)({
-	  topGames: _topGames2.default,
+	  games: _games2.default,
 	  streams: _streams2.default
 	});
 
@@ -33872,7 +33877,7 @@
 	});
 	exports.default = itemsByTwitch;
 
-	var _topGames = __webpack_require__(315);
+	var _games = __webpack_require__(315);
 
 	var _initState = __webpack_require__(321);
 
@@ -33883,9 +33888,9 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _topGames.REQUEST_GAMES:
+	    case _games.REQUEST_GAMES:
 	      return Object.assign({}, state, { isFetching: true });
-	    case _topGames.RECEIVE_GAMES:
+	    case _games.RECEIVE_GAMES:
 	      return Object.assign({}, state, {
 	        isFetching: false,
 	        items: state.items.concat(action.items),
@@ -33902,15 +33907,15 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _topGames.REQUEST_GAMES:
-	    case _topGames.RECEIVE_GAMES:
+	    case _games.REQUEST_GAMES:
+	    case _games.RECEIVE_GAMES:
 	      return Object.assign({}, state, _defineProperty({}, action.twitch, items(state[action.twitch], action)));
 	    default:
 	      return state;
 	  }
 	};
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "topGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "games.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -33967,7 +33972,7 @@
 	};
 
 	function shouldFetch(state) {
-	  var items = state['topGames'];
+	  var items = state['games'];
 	  if (Object.keys(items).length === 0 || Date.now() - items.lastUpdated > 500000) {
 	    return true;
 	  } else if (items.isFetching) {
@@ -33987,7 +33992,7 @@
 	  };
 	}
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "topGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "games.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -34732,10 +34737,12 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(139);
@@ -34744,9 +34751,15 @@
 
 	var _reactRedux = __webpack_require__(294);
 
+	var _games = __webpack_require__(315);
+
 	var _Games = __webpack_require__(328);
 
 	var _Games2 = _interopRequireDefault(_Games);
+
+	var _Header = __webpack_require__(331);
+
+	var _Header2 = _interopRequireDefault(_Header);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34757,58 +34770,75 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var TopGames = function (_Component) {
-	  _inherits(TopGames, _Component);
+	    _inherits(TopGames, _Component);
 
-	  function TopGames() {
-	    _classCallCheck(this, TopGames);
+	    function TopGames(props) {
+	        _classCallCheck(this, TopGames);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(TopGames).apply(this, arguments));
-	  }
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TopGames).call(this, props));
 
-	  _createClass(TopGames, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var games = _props.games;
-	      var dispatch = _props.dispatch;
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'container' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'TopGames'
-	        ),
-	        _react2.default.createElement(_Games2.default, this.props)
-	      );
+	        _this.handleMoreGames = _this.handleMoreGames.bind(_this);
+	        return _this;
 	    }
-	  }]);
 
-	  return TopGames;
+	    _createClass(TopGames, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var dispatch = this.props.dispatch;
+
+	            this.handleMoreGames = this.handleMoreGames.bind(this);
+	            dispatch((0, _games.fetchIfNeeded)('topGames', 'https://api.twitch.tv/kraken/games/top'));
+	        }
+	    }, {
+	        key: 'handleMoreGames',
+	        value: function handleMoreGames() {
+	            var _props = this.props;
+	            var dispatch = _props.dispatch;
+	            var nextUrl = _props.nextUrl;
+
+	            dispatch((0, _games.fetchData)('topGames', nextUrl));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var limitResults = this.props.limitResults;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                !limitResults ? _react2.default.createElement(_Header2.default, { headerText: 'Top Games' }) : null,
+	                _react2.default.createElement(_Games2.default, _extends({}, this.props, { handleMoreGames: this.handleMoreGames }))
+	            );
+	        }
+	    }]);
+
+	    return TopGames;
 	}(_react.Component);
 
 	;
 
-	function mapStateToProps(state) {
-	  var topGames = state.topGames;
+	function mapStateToProps(state, props) {
+	    var games = state.games;
+	    var limitResults = props.limitResults;
+	    var frontpage = props.frontpage;
 
-	  var _ref = topGames.games || { isFetching: true, items: [], nextUrl: '' };
+	    var _ref = games.topGames || { isFetching: true, items: [], nextUrl: '' };
 
-	  var isFetching = _ref.isFetching;
-	  var games = _ref.items;
-	  var nextUrl = _ref.nextUrl;
+	    var isFetching = _ref.isFetching;
+	    var topGames = _ref.items;
+	    var nextUrl = _ref.nextUrl;
 
-	  return {
-	    games: games,
-	    isFetching: isFetching,
-	    nextUrl: nextUrl
-	  };
+	    var result = frontpage && limitResults ? topGames.slice(0, limitResults) : topGames;
+	    return {
+	        games: result,
+	        isFetching: isFetching,
+	        nextUrl: nextUrl
+	    };
 	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(TopGames);
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TopGames.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Games.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -34833,8 +34863,6 @@
 
 	var _Game2 = _interopRequireDefault(_Game);
 
-	var _topGames = __webpack_require__(315);
-
 	var _ButtonTwitch = __webpack_require__(330);
 
 	var _ButtonTwitch2 = _interopRequireDefault(_ButtonTwitch);
@@ -34857,19 +34885,11 @@
 	    }
 
 	    _createClass(Games, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            var dispatch = this.props.dispatch;
-
-	            dispatch((0, _topGames.fetchIfNeeded)('games', 'https://api.twitch.tv/kraken/games/top'));
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
 	            var games = _props.games;
-	            var nextUrl = _props.nextUrl;
-	            var dispatch = _props.dispatch;
+	            var frontpage = _props.frontpage;
 
 	            return _react2.default.createElement(
 	                'div',
@@ -34884,7 +34904,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row text-center' },
-	                    nextUrl ? _react2.default.createElement(_ButtonTwitch2.default, { text: 'More Games', dispatch: dispatch, nextUrl: nextUrl }) : null
+	                    !frontpage ? _react2.default.createElement(_ButtonTwitch2.default, { text: 'More Games', clickHandler: this.props.handleMoreGames }) : null
 	                )
 	            );
 	        }
@@ -34952,7 +34972,7 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'col-xs-12 col-sm-4 col-lg-3' },
+	                { className: 'col-xs-12 col-sm-6 col-md-4 col-lg-3' },
 	                _react2.default.createElement(
 	                    'a',
 	                    { href: this.getEncodedLink() },
@@ -34988,7 +35008,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _topGames = __webpack_require__(315);
+	var _games = __webpack_require__(315);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35001,34 +35021,22 @@
 	var ButtonTwitch = function (_Component) {
 	    _inherits(ButtonTwitch, _Component);
 
-	    function ButtonTwitch(props) {
+	    function ButtonTwitch() {
 	        _classCallCheck(this, ButtonTwitch);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonTwitch).call(this, props));
-
-	        _this.handleMoreGames = _this.handleMoreGames.bind(_this);
-	        return _this;
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ButtonTwitch).apply(this, arguments));
 	    }
 
 	    _createClass(ButtonTwitch, [{
-	        key: 'handleMoreGames',
-	        value: function handleMoreGames() {
-	            var _props = this.props;
-	            var dispatch = _props.dispatch;
-	            var nextUrl = _props.nextUrl;
-
-	            dispatch((0, _topGames.fetchData)('games', nextUrl));
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _props2 = this.props;
-	            var clickHandler = _props2.clickHandler;
-	            var text = _props2.text;
+	            var _props = this.props;
+	            var clickHandler = _props.clickHandler;
+	            var text = _props.text;
 
 	            return _react2.default.createElement(
 	                'button',
-	                { className: 'btn btn-primary btn-twitch', onClick: this.handleMoreGames },
+	                { className: 'btn btn-primary btn-twitch', onClick: clickHandler },
 	                text
 	            );
 	        }
@@ -35053,6 +35061,67 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_Component) {
+	    _inherits(Header, _Component);
+
+	    function Header() {
+	        _classCallCheck(this, Header);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
+	    }
+
+	    _createClass(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            var headerText = this.props.headerText;
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    headerText
+	                ),
+	                this.props.children
+	            );
+	        }
+	    }]);
+
+	    return Header;
+	}(_react.Component);
+
+	exports.default = Header;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Header.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
@@ -35060,9 +35129,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Streams = __webpack_require__(332);
+	var _StreamsByGame = __webpack_require__(333);
 
-	var _Streams2 = _interopRequireDefault(_Streams);
+	var _StreamsByGame2 = _interopRequireDefault(_StreamsByGame);
 
 	var _reactRedux = __webpack_require__(294);
 
@@ -35091,12 +35160,14 @@
 	      var dispatch = _props.dispatch;
 	      var game = this.props.params.game;
 
-	      return _react2.default.createElement(_Streams2.default, { streams: gameStreams, dispatch: dispatch, gameName: game });
+	      return _react2.default.createElement(_StreamsByGame2.default, { streams: gameStreams, dispatch: dispatch, gameName: game });
 	    }
 	  }]);
 
 	  return GameStreams;
 	}(_react.Component);
+
+	;
 
 	function mapStateToProps(state, props) {
 	  var streams = state.streams;
@@ -35111,15 +35182,15 @@
 	    isFetching: isFetching,
 	    gameStreams: gameStreams
 	  };
-	}
+	};
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(GameStreams);
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "GameStreams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "StreamsByGame.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35136,7 +35207,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stream = __webpack_require__(333);
+	var _Stream = __webpack_require__(334);
 
 	var _Stream2 = _interopRequireDefault(_Stream);
 
@@ -35166,7 +35237,6 @@
 	            var dispatch = _props.dispatch;
 	            var gameName = _props.gameName;
 
-	            console.log(gameName);
 	            var uri = 'https://api.twitch.tv/kraken/streams?game=' + gameName;
 	            dispatch((0, _streams.fetchData)(gameName, uri));
 	        }
@@ -35190,11 +35260,11 @@
 
 	exports.default = Streams;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "StreamsByGame.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35235,7 +35305,7 @@
 
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "col-xs-12 col-sm-6 col-lg-4" },
+	        { className: "col-xs-12 col-sm-4 col-lg-3" },
 	        _react2.default.createElement("img", { src: stream.preview.medium, alt: "stream twitch" }),
 	        _react2.default.createElement(
 	          "p",
@@ -35267,7 +35337,169 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 334 */
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(294);
+
+	var _streams = __webpack_require__(323);
+
+	var _Streams = __webpack_require__(336);
+
+	var _Streams2 = _interopRequireDefault(_Streams);
+
+	var _Header = __webpack_require__(331);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ListStreams = function (_Component) {
+	    _inherits(ListStreams, _Component);
+
+	    function ListStreams(props) {
+	        _classCallCheck(this, ListStreams);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ListStreams).call(this, props));
+	    }
+
+	    _createClass(ListStreams, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var dispatch = this.props.dispatch;
+
+	            var uri = 'https://api.twitch.tv/kraken/streams';
+	            dispatch((0, _streams.fetchData)('topStreams', uri));
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var streams = _props.streams;
+	            var limitResults = _props.limitResults;
+	            var dispatch = _props.dispatch;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row whitespace-top' },
+	                    !limitResults ? _react2.default.createElement(_Header2.default, { headerText: 'Top Streams' }) : null,
+	                    _react2.default.createElement(_Streams2.default, { streams: streams, dispatch: dispatch })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ListStreams;
+	}(_react.Component);
+
+	function mapStateToProps(state, props) {
+	    var streams = state.streams;
+	    var limitResults = props.limitResults;
+
+	    var _ref = streams.topStreams || { isFetching: false, items: [] };
+
+	    var isFetching = _ref.isFetching;
+	    var listStreams = _ref.items;
+
+	    var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams;
+	    return {
+	        isFetching: isFetching,
+	        streams: result
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ListStreams);
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(139);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Stream = __webpack_require__(334);
+
+	var _Stream2 = _interopRequireDefault(_Stream);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TopStreams = function (_Component) {
+	    _inherits(TopStreams, _Component);
+
+	    function TopStreams() {
+	        _classCallCheck(this, TopStreams);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(TopStreams).apply(this, arguments));
+	    }
+
+	    _createClass(TopStreams, [{
+	        key: 'render',
+	        value: function render() {
+	            var streams = this.props.streams;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row text-center' },
+	                streams.map(function (stream) {
+	                    return _react2.default.createElement(_Stream2.default, { stream: stream, key: stream._id });
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TopStreams;
+	}(_react.Component);
+
+	exports.default = TopStreams;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Streams.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(77), RootInstanceProvider = __webpack_require__(85), ReactMount = __webpack_require__(87), React = __webpack_require__(139); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35280,7 +35512,7 @@
 	  value: true
 	});
 
-	__webpack_require__(335);
+	__webpack_require__(338);
 
 	var _react = __webpack_require__(139);
 
@@ -35288,11 +35520,17 @@
 
 	var _reactRedux = __webpack_require__(294);
 
-	var _topGames = __webpack_require__(315);
-
-	var _Games = __webpack_require__(328);
+	var _Games = __webpack_require__(327);
 
 	var _Games2 = _interopRequireDefault(_Games);
+
+	var _Streams = __webpack_require__(335);
+
+	var _Streams2 = _interopRequireDefault(_Streams);
+
+	var _Header = __webpack_require__(331);
+
+	var _Header2 = _interopRequireDefault(_Header);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35318,10 +35556,7 @@
 	  _createClass(FrontPage, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var games = _props.games;
-	      var dispatch = _props.dispatch;
-
+	      var limitResults = 4;
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -35346,21 +35581,39 @@
 	            'div',
 	            { className: 'row' },
 	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Top Games'
-	            ),
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'lead-text' },
-	              'Find more games ',
+	              _Header2.default,
+	              { headerText: 'Top Games' },
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#/topGames' },
-	                'here'
+	                'p',
+	                { className: 'lead-text' },
+	                'Find more games ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: '#/games' },
+	                  'here'
+	                )
 	              )
 	            ),
-	            _react2.default.createElement(_Games2.default, { games: games, dispatch: dispatch })
+	            _react2.default.createElement(_Games2.default, { limitResults: limitResults, frontpage: true })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'row whitespace-top' },
+	            _react2.default.createElement(
+	              _Header2.default,
+	              { headerText: 'Top streams' },
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'lead-text' },
+	                'Find more streams ',
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: '#/streams' },
+	                  'here'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(_Streams2.default, { limitResults: limitResults, frontpage: true })
 	          )
 	        )
 	      );
@@ -35370,33 +35623,19 @@
 	  return FrontPage;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  var topGames = state.topGames;
-
-	  var _ref = topGames.games || { isFetching: false, items: [] };
-
-	  var isFetching = _ref.isFetching;
-	  var games = _ref.items;
-
-	  return {
-	    isFetching: isFetching,
-	    games: games.slice(0, 4)
-	  };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(FrontPage);
+	exports.default = FrontPage;
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(318); if (makeExportsHot(module, __webpack_require__(139))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Frontpage.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(336);
+	var content = __webpack_require__(339);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(246)(content, {});
@@ -35405,8 +35644,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(336, function() {
-				var newContent = __webpack_require__(336);
+			module.hot.accept(339, function() {
+				var newContent = __webpack_require__(339);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -35416,7 +35655,7 @@
 	}
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(245)();
@@ -35424,7 +35663,7 @@
 
 
 	// module
-	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n  .frontpage-top h1 {\n    color: white;\n    font-weight: 300; }\n  .frontpage-top .frontpage-logo {\n    padding-top: 120px; }\n\n.container-frontpage {\n  padding-bottom: 100px; }\n  .container-frontpage h3 {\n    color: rgba(0, 0, 0, 0.87); }\n\n.lead-text {\n  color: rgba(0, 0, 0, 0.54); }\n", ""]);
+	exports.push([module.id, "/******************\r\n    Frontpage\r\n*******************/\n.frontpage-top {\n  background-color: #6441A5;\n  min-height: 500px;\n  text-align: center; }\n  .frontpage-top h1 {\n    color: white;\n    font-weight: 300; }\n  .frontpage-top .frontpage-logo {\n    padding-top: 120px; }\n\n.container-frontpage {\n  padding-bottom: 100px; }\n  .container-frontpage h3 {\n    color: rgba(0, 0, 0, 0.87); }\n\n.lead-text {\n  color: rgba(0, 0, 0, 0.54); }\n\n.whitespace-top {\n  margin-top: 30px; }\n", ""]);
 
 	// exports
 

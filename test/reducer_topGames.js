@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import itemsByTwitch from '../src/reducers/topGames';
+import { expect } from 'chai';
+import itemsByTwitch from '../src/reducers/games';
 
 describe('TopGames Reducer', () => {
 
