@@ -2,14 +2,14 @@
 export const PLAY_STREAM = 'PLAY_STREAM';
 export const STOP_STREAM = 'STOP_STREAM';
 
-function playingStream(streamId) {
+export function playStream(streamId) {
     return {
         type: 'PLAY_STREAM',
         streamId: streamId,
     }
 }
 
-function stopStream() {
+export function stopStream() {
     return {
         type: 'STOP_STREAM'
     }

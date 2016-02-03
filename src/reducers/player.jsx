@@ -2,7 +2,7 @@
 const basicState = {
     streamId: 0,
     mode: 'stopped'
-}
+};
 export default function player(state = basicState, action) {
     switch (action.type) {
         case 'PLAY_STREAM':

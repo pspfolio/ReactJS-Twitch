@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {fetchData} from '../actions/streams';
+import { fetchData } from '../actions/streams';
+import { playStream } from '../actions/player';
 import Streams from '../components/Streams';
 import Header from '../components/Header';
 
 class ListStreams extends Component {
     constructor(props) {
         super(props);
+        this.handleStreamClick = this.handleStreamClick.bind(this);
     }
 
     componentDidMount() {
@@ -15,13 +17,20 @@ class ListStreams extends Component {
         dispatch(fetchData('topStreams', uri));
     }
 
+    handleStreamClick(streamId) {
+        const { dispatch } = this.props;
+        dispatch(playStream(streamId));
+    }
+
     render() {
-        const { streams, limitResults, dispatch } = this.props;
+        const { streams, selectedStream, limitResults, dispatch } = this.props;
         return(
             <div className="container">
                 <div className="row whitespace-top">
                     { !limitResults ? <Header headerText={'Top Streams'} /> : null }
-                  <Streams streams={streams} dispatch={dispatch} />
+                  <Streams streams={streams}
+                      selectedStream={selectedStream}
+                      handleStreamClick={this.handleStreamClick} />
                 </div>
             </div>
         )
@@ -29,13 +38,14 @@ class ListStreams extends Component {
 }
 
 function mapStateToProps(state, props) {
-    const { streams } = state;
+    const { streams, selectedStream } = state;
     const { limitResults } = props;
     const { isFetching, items: listStreams } = streams.topStreams || {isFetching: false, items: []};
     var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
     return {
         isFetching,
-        streams: result
+        streams: result,
+        selectedStream
     }
 }
 

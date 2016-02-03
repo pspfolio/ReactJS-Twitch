@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
-import StreamsByGame from '../components/StreamsByGame';
-import {connect} from 'react-redux';
+import Streams from '../components/Streams';
+import { connect } from 'react-redux';
+import { fetchData } from '../actions/streams';
+import { playStream } from '../actions/player';
+
 class GameStreams extends Component {
-  render() {
-    const { gameStreams, dispatch } = this.props;
-    const { game } = this.props.params;
-    return(
-      <StreamsByGame streams={gameStreams} dispatch={dispatch} gameName={game} />
-    )
-  }
+    constructor(props) {
+        super(props);
+        this.handleStreamClick = this.handleStreamClick.bind(this);
+    }
+
+    componentDidMount() {
+        const { dispatch } = this.props;
+        const { game } = this.props.params;
+        var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
+        dispatch(fetchData(game, uri));
+    }
+
+    handleStreamClick(streamId) {
+        const { dispatch } = this.props;
+        dispatch(playStream(streamId));
+    }
+
+    render() {
+        const { gameStreams, selectedStream } = this.props;
+        return(
+            <Streams streams={gameStreams} selectedStream={selectedStream} handleStreamClick={this.handleStreamClick} />
+        )
+    }
 };
 
 function mapStateToProps(state, props) {
-  const { streams } = state;
+  const { streams, selectedStream } = state;
   const { game } = props.routeParams;
   const { isFetching, items: gameStreams } = streams[game] || { isFetching: true, items: [] };
   return {
     isFetching,
-    gameStreams
+    gameStreams,
+    selectedStream
   }
 };
 
