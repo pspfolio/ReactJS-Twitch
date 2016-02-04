@@ -24,7 +24,7 @@ class TopGames extends Component {
     render() {
         const { limitResults } = this.props;
         return (
-            <div className="container">
+            <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Games'} /> : null }
                 <Games {...this.props} handleMoreGames={this.handleMoreGames} />
             </div>

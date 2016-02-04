@@ -1,3 +1,4 @@
+import '../styles/components/Game.scss';
 import React, { Component } from 'react';
 
 export default class Game extends Component {
@@ -7,11 +8,17 @@ export default class Game extends Component {
         return encodeURI(uri);
     }
     render() {
-      const { imgUrl } = this.props;
+      const { imgUrl, name } = this.props;
+      var backgroundStyle = {
+          backgroundImage: 'url('+ imgUrl +')',
+      }
       return (
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-              <a href={this.getEncodedLink()}><img src={imgUrl} alt="stream twitch game" /></a>
-          </div>
+              <a href={this.getEncodedLink()} className="game-link">
+                  <div className="img" style={backgroundStyle}></div>
+                  <div className="game-name">
+                      <h2>{name}</h2>
+                  </div>
+              </a>
       )
   	}
 }
