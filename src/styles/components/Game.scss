@@ -6,16 +6,17 @@
     text-decoration: none;
     display: block;
     width: 100%;
-}
 
-.game-link h2 {
-    padding: 5px 0;
-    font-size: 18px;
-    font-weight: 300;
-    color: rgba(0,0,0,.54);
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+
+    h2 {
+        padding: 10px 0;
+        font-size: 18px;
+        font-weight: 300;
+        color: rgba(0,0,0,.54);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 .img {

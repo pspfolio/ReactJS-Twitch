@@ -11,7 +11,7 @@ var images = {
 
 export default class FrontPage extends Component {
   render() {
-    const limitResults = 4;
+    const limitResults = 3;
     return(
       <div>
         <div className="frontpage-top">
@@ -27,7 +27,7 @@ export default class FrontPage extends Component {
             </Header>
             <Games limitResults={limitResults} frontpage={true} />
           </div>
-          <div className="row whitespace-top">
+          <div className="row">
             <Header headerText={'Top streams'}>
                 <p className="lead-text">Find more streams <a href='#/streams'>here</a></p>
             </Header>

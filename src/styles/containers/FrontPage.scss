@@ -11,9 +11,9 @@ $grey-font: rgba(0,0,0,.54);
   h1 {
     color: white;
     font-weight: 300;
-  }
+    }
 
-  .frontpage-logo {
+.frontpage-logo {
     padding-top: 120px;
   }
 }
@@ -27,8 +27,4 @@ $grey-font: rgba(0,0,0,.54);
 
 .lead-text {
   color: $grey-font;
-}
-
-.whitespace-top {
-    margin-top: 30px;
 }
