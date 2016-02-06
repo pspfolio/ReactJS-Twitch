@@ -28,7 +28,7 @@ class ListStreams extends Component {
             <div className="container">
                 <div className="row whitespace-top">
                     { !limitResults ? <Header headerText={'Top Streams'} /> : null }
-                  <Streams streams={streams}
+                  <Streams dispatch={dispatch} streams={streams}
                       selectedStream={selectedStream}
                       handleStreamClick={this.handleStreamClick} />
                 </div>

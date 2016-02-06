@@ -5,7 +5,7 @@ import Player from './Player';
 
 export default class TopStreams extends Component {
     render() {
-        const { streams, selectedStream, handleStreamClick  } = this.props;
+        const { streams, selectedStream, handleStreamClick, dispatch  } = this.props;
         return(
             <div className="row">
                 <ul className="card-list">
@@ -15,7 +15,7 @@ export default class TopStreams extends Component {
                     </li>
                 )}
                 </ul>
-                <Player streams={streams} selectedStream={selectedStream} />
+                <Player streams={streams} selectedStream={selectedStream} dispatch={dispatch} />
             </div>
         )
     }

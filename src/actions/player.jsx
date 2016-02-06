@@ -10,6 +10,7 @@ export function playStream(streamId) {
 }
 
 export function stopStream() {
+    console.log("stopping");
     return {
         type: 'STOP_STREAM'
     }

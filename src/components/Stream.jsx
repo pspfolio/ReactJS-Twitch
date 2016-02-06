@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 export default class Stream extends Component {
   render() {
     const { stream, handleStreamClick } = this.props;
-    console.log(stream);
     const cardHederStyle = {
         backgroundImage: 'url(' + stream.preview.medium + ')',
     }

@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
+import { stopStream } from '../actions/player';
 
 export default class Player extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.handleCloseStream = this.handleCloseStream.bind(this);
+    }
 
+    handleCloseStream() {
+        const { dispatch } = this.props;
+        dispatch(stopStream());
+    }
+
+    render() {
         const style = {
             position: 'fixed',
             bottom: '0',
@@ -11,13 +21,14 @@ export default class Player extends Component {
 
         const { streams, selectedStream } = this.props;
         var stream = streams.filter(function(stream) {
-            return stream._id === selectedStream.streamId
+            return stream._id === selectedStream.streamId;
         });
         let player;
         if(stream.length > 0) {
             const uri = 'http://player.twitch.tv/?channel=' + stream[0].channel.display_name;
             player = (
                 <div style={style}>
+                    <p onClick={this.handleCloseStream}>Close stream</p>
                 <iframe
                     src={uri}
                     height='350px'
