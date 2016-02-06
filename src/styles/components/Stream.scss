@@ -1,0 +1,59 @@
+/******************
+    Streams List
+*******************/
+$secondary-text-size: 0.9em;
+$secondary-text-color: rgba(0,0,0,.54);
+
+.twitch-card {
+    width: 320px;
+    border: solid 1px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,.05);
+}
+
+.twitch-card-header {
+    height: 180px;
+    position: 'relative';
+}
+
+.twitch-card-body {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgba(0,0,0,0.12);
+
+    .twitch-card-name {
+        font-weight: 300;
+        font-size: 1.4em;
+        margin-left: 20px;
+        color: rgba(0,0,0,.87);
+    }
+
+    .twitch-card-lead {
+        overflow-x: hidden;
+        margin-left: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: $secondary-text-color;
+        font-weight: 400;
+        font-size: $secondary-text-size;
+    }
+}
+
+.twitch-card-footer {
+    padding-top: 25px;
+    ul {
+        padding: 0;
+        li {
+            list-style-type: none;
+            display: inline-block;
+            width: 33.33%;
+            text-align: center;
+
+            .small-text {
+                display: block;
+                font-size: $secondary-text-size;
+                color: $secondary-text-color;
+            }
+        }
+    }
+}

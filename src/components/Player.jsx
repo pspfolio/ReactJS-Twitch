@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Player extends Component {
     render() {
 
-        var style = {
+        const style = {
             position: 'fixed',
             bottom: '0',
             left: '10px'
