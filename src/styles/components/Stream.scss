@@ -8,7 +8,7 @@ $secondary-text-color: rgba(0,0,0,.54);
     width: 320px;
     border: solid 1px rgba(0,0,0,0.12);
     border-radius: 2px;
-    box-shadow: 2px 2px 5px 0px rgba(0,0,0,.05);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,.08);
 }
 
 .twitch-card-header {
@@ -20,7 +20,7 @@ $secondary-text-color: rgba(0,0,0,.54);
     padding-top: 30px;
     padding-bottom: 15px;
     border-bottom: solid 1px rgba(0,0,0,0.12);
-
+    position: relative;
     .twitch-card-name {
         font-weight: 300;
         font-size: 1.4em;
@@ -37,6 +37,26 @@ $secondary-text-color: rgba(0,0,0,.54);
         font-weight: 400;
         font-size: $secondary-text-size;
     }
+
+    .play-button {
+        position: absolute;
+        cursor: pointer;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        right: 20px;
+        top: -26px;
+        background: url('/../images/play-icon.png') no-repeat;
+        background-size: 20px 20px;
+        background-position: 55% 49%;
+        background-color: #6441A5;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        transition: all .3s ease-out;
+        &:hover {
+            box-shadow: 0 5px 12px 0 rgba(0,0,0,0.2), 0 5px 15px 0 rgba(0,0,0,0.2);
+        }
+    }
+
 }
 
 .twitch-card-footer {
