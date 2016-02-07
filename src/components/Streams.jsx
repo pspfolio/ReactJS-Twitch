@@ -7,7 +7,7 @@ export default class TopStreams extends Component {
     render() {
         const { streams, selectedStream, handleStreamClick, dispatch  } = this.props;
         return(
-            <div className="row">
+            <div className="row text-center">
                 <ul className="card-list">
                 {streams.map(stream =>
                     <li className='card-item' key={stream._id}>

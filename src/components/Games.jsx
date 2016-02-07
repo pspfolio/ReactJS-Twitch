@@ -5,10 +5,10 @@ import ButtonTwitch from './ButtonTwitch';
 
 export default class Games extends Component {
     render() {
-      const { games, frontpage } = this.props;
+      const { games, frontpage, moreGamesToFetch } = this.props;
       return(
           <div>
-              <div className="row">
+              <div className="row text-center">
                   <ul>
                       {games.map((game, i) =>
                           <li className="games-list" key={i}>
@@ -18,7 +18,8 @@ export default class Games extends Component {
                   </ul>
               </div>
               <div className="row text-center">
-                  {!frontpage ? <ButtonTwitch text={'More Games'} clickHandler={this.props.handleMoreGames} /> : null }
+                  {!frontpage && moreGamesToFetch ? <ButtonTwitch text={'More Games'} clickHandler={this.props.handleMoreGames} /> : null }
+                  {!frontpage && !moreGamesToFetch ? <p className="lead">Sorry no more games for you :(</p> : null }
               </div>
           </div>
       )
@@ -28,9 +29,3 @@ export default class Games extends Component {
 Games.propTypes = {
   games: React.PropTypes.array
 }
-/*
-_id: 21779
-_links: Object
-box: Object
-giantbomb_id: 24024
-*/

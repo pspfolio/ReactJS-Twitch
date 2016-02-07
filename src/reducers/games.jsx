@@ -10,7 +10,8 @@ function items(state = initState, action) {
         isFetching: false,
         items: state.items.concat(action.items),
         nextUrl: action.nextUrl,
-        lastUpdated: action.received
+        lastUpdated: action.received,
+        moreGamesToFetch: action.items.length === 80
       });
     default:
       return state;

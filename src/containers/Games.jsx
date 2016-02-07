@@ -35,12 +35,13 @@ class TopGames extends Component {
 function mapStateToProps(state, props) {
   const { games } = state;
   const { limitResults, frontpage } = props;
-  const { isFetching, items: topGames, nextUrl} = games.topGames || {isFetching: true, items: [], nextUrl: ''};
-  const result = frontpage && limitResults ? topGames.slice(0, limitResults) : topGames
+  const {moreGamesToFetch, isFetching, items: topGames, nextUrl} = games.topGames || {moreGamesToFetch: false, isFetching: true, items: [], nextUrl: ''};
+  const result = frontpage && limitResults ? topGames.slice(0, limitResults) : topGames;
   return {
     games : result,
     isFetching,
-    nextUrl
+    nextUrl,
+    moreGamesToFetch
   }
 };
 
