@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { fetchData } from '../actions/games';
 
 export default class ButtonTwitch extends Component {
@@ -15,4 +15,9 @@ export default class ButtonTwitch extends Component {
             <button style={style} className="btn btn-primary btn-twitch" onClick={clickHandler}>{text}</button>
         )
     }
+}
+
+ButtonTwitch.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+  text: PropTypes.string
 }

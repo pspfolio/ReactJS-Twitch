@@ -1,5 +1,5 @@
 import '../styles/components/Player.scss';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { stopStream } from '../actions/player';
 
 export default class Player extends Component {
@@ -43,4 +43,10 @@ export default class Player extends Component {
             </div>
         )
     }
+}
+
+Player.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    streams: PropTypes.array.isRequired,
+    selectedStream: React.PropTypes.object.isRequired
 }

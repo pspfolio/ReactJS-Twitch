@@ -1,5 +1,5 @@
 import '../styles/components/Streams.scss';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Stream from './Stream';
 import Player from './Player';
 
@@ -19,4 +19,11 @@ export default class TopStreams extends Component {
             </div>
         )
     }
+}
+
+TopStreams.propTypes = {
+    streams: PropTypes.array.isRequired,
+    selectedStream: PropTypes.object.isRequired,
+    handleStreamClick: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired
 }

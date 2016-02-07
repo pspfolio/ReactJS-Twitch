@@ -1,5 +1,5 @@
 import '../styles/components/Game.scss';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Game extends Component {
     getEncodedLink() {
@@ -13,10 +13,15 @@ export default class Game extends Component {
           backgroundImage: 'url('+ imgUrl +')',
       }
       return (
-              <a href={this.getEncodedLink()} className="game-link">
-                  <div className="img" style={backgroundStyle}></div>
-                      <h2>{name}</h2>
-              </a>
+        <a href={this.getEncodedLink()} className="game-link">
+            <div className="img" style={backgroundStyle}></div>
+            <h2>{name}</h2>
+        </a>
       )
   	}
+}
+
+Game.propTypes = {
+  imgUrl: React.PropTypes.string,
+  name: React.PropTypes.string
 }

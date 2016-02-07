@@ -11,7 +11,6 @@ function requestStreams(game) {
 };
 
 function receiveGames(game, json) {
-    console.log(game, json);
   return {
     type: RECEIVE_STREAMS,
     game,

@@ -1,5 +1,5 @@
 import '../styles/components/Games.scss';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Game from './Game';
 import ButtonTwitch from './ButtonTwitch';
 
@@ -27,5 +27,7 @@ export default class Games extends Component {
 }
 
 Games.propTypes = {
-  games: React.PropTypes.array
+  games: PropTypes.array.isRequired,
+  frontpage: PropTypes.bool,
+  moreGamesToFetch: PropTypes.bool
 }

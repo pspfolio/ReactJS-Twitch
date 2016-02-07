@@ -50,6 +50,5 @@ export function fetchIfNeeded(twitch, url){
     } else {
       return Promise.resolve();
     }
-
    }
 }
