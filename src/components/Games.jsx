@@ -10,8 +10,8 @@ export default class Games extends Component {
           <div>
               <div className="row">
                   <ul>
-                      {games.map(game =>
-                          <li className="games-list" key={game.game._id + game.viewers}>
+                      {games.map((game, i) =>
+                          <li className="games-list" key={i}>
                               <Game name={game.game.name} imgUrl={game.game.box.large} />
                           </li>
                       )}
@@ -28,3 +28,9 @@ export default class Games extends Component {
 Games.propTypes = {
   games: React.PropTypes.array
 }
+/*
+_id: 21779
+_links: Object
+box: Object
+giantbomb_id: 24024
+*/

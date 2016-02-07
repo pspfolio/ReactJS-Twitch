@@ -23,9 +23,9 @@ class GameStreams extends Component {
     }
 
     render() {
-        const { gameStreams, selectedStream } = this.props;
+        const { gameStreams, selectedStream, dispatch } = this.props;
         return(
-            <Streams streams={gameStreams} selectedStream={selectedStream} handleStreamClick={this.handleStreamClick} />
+            <Streams streams={gameStreams} selectedStream={selectedStream} handleStreamClick={this.handleStreamClick} dispatch={dispatch} />
         )
     }
 };

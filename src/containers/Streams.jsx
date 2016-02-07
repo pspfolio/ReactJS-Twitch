@@ -25,7 +25,7 @@ class ListStreams extends Component {
     render() {
         const { streams, selectedStream, limitResults, dispatch } = this.props;
         return(
-            <div>
+            <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Streams'} /> : null }
                 <Streams dispatch={dispatch} streams={streams}
                     selectedStream={selectedStream}

@@ -13,7 +13,7 @@ class TopGames extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
         this.handleMoreGames = this.handleMoreGames.bind(this);
-        dispatch(fetchIfNeeded('topGames', 'https://api.twitch.tv/kraken/games/top'));
+        dispatch(fetchIfNeeded('topGames', 'https://api.twitch.tv/kraken/games/top?limit=80'));
     }
 
     handleMoreGames() {
@@ -24,7 +24,7 @@ class TopGames extends Component {
     render() {
         const { limitResults } = this.props;
         return (
-            <div>
+            <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Games'} /> : null }
                 <Games {...this.props} handleMoreGames={this.handleMoreGames} />
             </div>
