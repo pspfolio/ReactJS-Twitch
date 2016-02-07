@@ -25,14 +25,13 @@ class ListStreams extends Component {
     render() {
         const { streams, selectedStream, limitResults, dispatch } = this.props;
         return(
-            <div className="container">
-                <div className="row whitespace-top">
-                    { !limitResults ? <Header headerText={'Top Streams'} /> : null }
-                  <Streams dispatch={dispatch} streams={streams}
-                      selectedStream={selectedStream}
-                      handleStreamClick={this.handleStreamClick} />
-                </div>
+            <div>
+                { !limitResults ? <Header headerText={'Top Streams'} /> : null }
+                <Streams dispatch={dispatch} streams={streams}
+                    selectedStream={selectedStream}
+                    handleStreamClick={this.handleStreamClick} />
             </div>
+
         )
     }
 }
