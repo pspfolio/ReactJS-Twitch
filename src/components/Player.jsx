@@ -1,3 +1,4 @@
+import '../styles/components/Player.scss';
 import React, { Component } from 'react';
 import { stopStream } from '../actions/player';
 
@@ -13,13 +14,8 @@ export default class Player extends Component {
     }
 
     render() {
-        const style = {
-            position: 'fixed',
-            bottom: '0',
-            left: '10px'
-        };
-
         const { streams, selectedStream } = this.props;
+        // Filtering our selected stream from streams result set
         var stream = streams.filter(function(stream) {
             return stream._id === selectedStream.streamId;
         });
@@ -27,8 +23,8 @@ export default class Player extends Component {
         if(stream.length > 0) {
             const uri = 'http://player.twitch.tv/?channel=' + stream[0].channel.display_name;
             player = (
-                <div style={style}>
-                    <p onClick={this.handleCloseStream}>Close stream</p>
+                <div className="player">
+                    <span className="close-icon" onClick={this.handleCloseStream}></span>
                 <iframe
                     src={uri}
                     height='350px'
