@@ -8,13 +8,13 @@ class GameStreams extends Component {
     constructor(props) {
         super(props);
         this.handleStreamClick = this.handleStreamClick.bind(this);
+        this.handleMoreStreams = this.handleMoreStreams.bind(this);
+        this.getStreams = this.getStreams.bind(this);
     }
 
     componentDidMount() {
-        const { dispatch } = this.props;
-        const { game } = this.props.params;
-        var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
-        dispatch(fetchData(game, uri));
+        console.log("componetn dit mount");
+        this.handleMoreStreams();
     }
 
     handleStreamClick(streamId) {
@@ -22,10 +22,23 @@ class GameStreams extends Component {
         dispatch(playStream(streamId));
     }
 
+    handleMoreStreams() {
+        console.log()
+        const { dispatch } = this.props;
+        const { game } = this.props.params;
+        var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
+        this.getStreams(game, uri);
+    }
+
+    getStreams(game, url) {
+        const { dispatch } = this.props;
+        dispatch(fetchData(game, url));
+    }
+
     render() {
         const { gameStreams, selectedStream, dispatch } = this.props;
         return(
-            <Streams streams={gameStreams} selectedStream={selectedStream} handleStreamClick={this.handleStreamClick} dispatch={dispatch} />
+            <Streams streams={gameStreams} selectedStream={selectedStream} handleMoreStreams={this.handleMoreStreams} handleStreamClick={this.handleStreamClick} dispatch={dispatch} />
         )
     }
 };
