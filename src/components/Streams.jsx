@@ -7,7 +7,6 @@ import ButtonTwitch from './ButtonTwitch';
 export default class TopStreams extends Component {
     render() {
         const { streams, selectedStream, handleStreamClick, handleMoreStreams, frontpage, dispatch  } = this.props;
-        console.log(frontpage);
         return(
             <div className="row text-center">
                 <ul className="card-list">

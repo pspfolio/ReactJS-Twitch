@@ -51,7 +51,6 @@ class ListStreams extends Component {
 
 function mapStateToProps(state, props) {
     const { streams, selectedStream } = state;
-    console.log(streams);
     const { limitResults } = props;
     const { isFetching, items: listStreams, nextUrl } = streams.topStreams || {isFetching: false, items: [], nextUrl: ''};
     var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
