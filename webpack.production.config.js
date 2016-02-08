@@ -24,8 +24,8 @@ resolve: {
   extensions: ['', '.js', '.jsx']
 },
   output: {
-    path: __dirname,
-    publicPath: '/ReactJS-Twitch/prod/',
+    path: __dirname + '/prod',
+    publicPath: '/prod/images/',
     filename: 'bundle.js'
   }
 };
