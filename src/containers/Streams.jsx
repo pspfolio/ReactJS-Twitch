@@ -8,13 +8,14 @@ import Header from '../components/Header';
 class ListStreams extends Component {
     constructor(props) {
         super(props);
+        this.getStreams = this.getStreams.bind(this);
         this.handleStreamClick = this.handleStreamClick.bind(this);
+        this.handleMoreStreams = this.handleMoreStreams.bind(this);
     }
 
     componentDidMount() {
-        const { dispatch } = this.props;
         var uri = 'https://api.twitch.tv/kraken/streams';
-        dispatch(fetchData('topStreams', uri));
+        this.getStreams('topStreams', uri)
     }
 
     handleStreamClick(streamId) {
@@ -23,26 +24,34 @@ class ListStreams extends Component {
     }
 
     handleMoreStreams() {
+        const { nextUrl } = this.props;
+        this.getStreams('topStreams', nextUrl);
+    }
 
+    getStreams(name, url) {
+        const { dispatch } = this.props;
+        dispatch(fetchData(name, url));
     }
 
     render() {
-        const { streams, selectedStream, limitResults, nextUrl, dispatch } = this.props;
-        console.log(nextUrl);
+        const { streams, selectedStream, limitResults, frontpage, dispatch } = this.props;
         return(
             <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Streams'} /> : null }
                 <Streams dispatch={dispatch} streams={streams}
                     selectedStream={selectedStream}
-                    handleStreamClick={this.handleStreamClick} />
+                    handleStreamClick={this.handleStreamClick}
+                    handleMoreStreams={this.handleMoreStreams}
+                    frontpage={frontpage}
+                    />
             </div>
-
         )
     }
 }
 
 function mapStateToProps(state, props) {
     const { streams, selectedStream } = state;
+    console.log(streams);
     const { limitResults } = props;
     const { isFetching, items: listStreams, nextUrl } = streams.topStreams || {isFetching: false, items: [], nextUrl: ''};
     var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
