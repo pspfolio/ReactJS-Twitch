@@ -25,7 +25,7 @@ resolve: {
 },
   output: {
     path: __dirname + '/prod',
-    publicPath: '/prod',
+    publicPath: '/prod/',
     filename: 'bundle.js'
   }
 };
