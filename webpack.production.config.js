@@ -25,7 +25,7 @@ resolve: {
 },
   output: {
     path: __dirname + '/prod',
-    publicPath: '/prod/images/',
+    publicPath: '/ReactJS-Twitch/prod/images/',
     filename: 'bundle.js'
   }
 };
