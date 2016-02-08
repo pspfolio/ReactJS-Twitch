@@ -24,7 +24,7 @@ resolve: {
   extensions: ['', '.js', '.jsx']
 },
   output: {
-    path: __dirname + '/prod',
+    path: __dirname,
     publicPath: __dirname,
     filename: 'bundle.js'
   }
