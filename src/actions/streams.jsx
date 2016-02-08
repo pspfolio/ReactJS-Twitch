@@ -14,8 +14,9 @@ function receiveGames(game, json) {
   return {
     type: RECEIVE_STREAMS,
     game,
-    items: json,
-    received: Date.now()
+    items: json.streams,
+    received: Date.now(),
+    nextUrl: json._links.next
   }
 };
 
@@ -23,7 +24,7 @@ export function fetchData(game, url) {
   return dispatch => {
     dispatch(requestStreams(game));
     return fetch(url).then(response => response.json()).then(json =>
-      dispatch(receiveGames(game, json.streams))
+      dispatch(receiveGames(game, json))
     )
   }
 }

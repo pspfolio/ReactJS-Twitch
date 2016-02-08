@@ -22,8 +22,13 @@ class ListStreams extends Component {
         dispatch(playStream(streamId));
     }
 
+    handleMoreStreams() {
+
+    }
+
     render() {
-        const { streams, selectedStream, limitResults, dispatch } = this.props;
+        const { streams, selectedStream, limitResults, nextUrl, dispatch } = this.props;
+        console.log(nextUrl);
         return(
             <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Streams'} /> : null }
@@ -39,12 +44,13 @@ class ListStreams extends Component {
 function mapStateToProps(state, props) {
     const { streams, selectedStream } = state;
     const { limitResults } = props;
-    const { isFetching, items: listStreams } = streams.topStreams || {isFetching: false, items: []};
+    const { isFetching, items: listStreams, nextUrl } = streams.topStreams || {isFetching: false, items: [], nextUrl: ''};
     var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
     return {
         isFetching,
         streams: result,
-        selectedStream
+        selectedStream,
+        nextUrl
     }
 }
 

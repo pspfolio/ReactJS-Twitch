@@ -9,7 +9,8 @@ function stream(state = initState, action) {
       return Object.assign({}, state, {
         isFetching: false,
         items: state.items.concat(action.items),
-        lastUpdated: action.received
+        lastUpdated: action.received,
+        nextUrl: action.nextUrl
       });
     default:
       return state;
