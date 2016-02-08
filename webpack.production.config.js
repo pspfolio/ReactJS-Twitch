@@ -13,7 +13,11 @@ module.exports = {
   {
     test: /\.scss$/,
     loader: 'style!css!sass'
-  }
+},
+{
+    test   : /\.png$/,
+    loader: "file-loader"
+},
 ]
 },
 resolve: {
@@ -21,7 +25,7 @@ resolve: {
 },
   output: {
     path: __dirname + '/prod',
-    publicPath: '/',
+    publicPath: __dirname + '/prod',
     filename: 'bundle.js'
   }
 };
