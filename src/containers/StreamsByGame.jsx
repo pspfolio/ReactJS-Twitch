@@ -13,7 +13,6 @@ class GameStreams extends Component {
     }
 
     componentDidMount() {
-        console.log("componetn dit mount");
         this.handleMoreStreams();
     }
 
@@ -23,7 +22,6 @@ class GameStreams extends Component {
     }
 
     handleMoreStreams() {
-        console.log()
         const { dispatch } = this.props;
         const { game } = this.props.params;
         var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
