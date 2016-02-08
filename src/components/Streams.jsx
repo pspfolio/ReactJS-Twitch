@@ -10,8 +10,8 @@ export default class TopStreams extends Component {
         return(
             <div className="row text-center">
                 <ul className="card-list">
-                {streams.map(stream =>
-                    <li className='card-item' key={stream._id}>
+                {streams.map((stream, i) =>
+                    <li className='card-item' key={i}>
                         <Stream stream={stream} handleStreamClick={handleStreamClick}/>
                     </li>
                 )}

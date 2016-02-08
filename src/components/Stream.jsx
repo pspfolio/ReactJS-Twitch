@@ -11,7 +11,9 @@ export default class Stream extends Component {
         <div className="twitch-card">
             <div className="twitch-card-header" style={cardHeaderStyle}></div>
             <div className="twitch-card-body">
-                <div className="play-button" onClick={handleStreamClick.bind(this, stream._id)}></div>
+                <div className="play-button" onClick={handleStreamClick.bind(this, stream._id)}>
+
+                </div>
                 <h3 className="twitch-card-name">{stream.channel.name}</h3>
                 <p className="twitch-card-lead">{stream.channel.status}</p>
             </div>
