@@ -8,7 +8,7 @@ function stream(state = initState, action) {
     case RECEIVE_STREAMS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.items,
+        items: state.items.concat(action.items),
         lastUpdated: action.received
       });
     default:

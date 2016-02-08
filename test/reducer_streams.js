@@ -37,7 +37,8 @@ describe('Streams reducers', () => {
   it('RECEIVE_STREAMS setting isFetching to false', () => {
     const initState = {
       game1: {
-        isFetching: true
+        isFetching: true,
+        items: []
       }
     };
 
@@ -47,12 +48,12 @@ describe('Streams reducers', () => {
       game: 'game1'
     };
     const nextState = streamsReducer(initState, action);
-
+    console.log(nextState);
     expect(nextState.game1.isFetching).to.be.false;
     expect(nextState.game1.items[0].name).to.equal('stream1');
   }),
 
-  it('RECEIVE_STREAMS replaces old items', () => {
+  it('RECEIVE_STREAMS adding new items to items', () => {
     const initState = {
       game1: {
         isFetching: false,
@@ -67,8 +68,8 @@ describe('Streams reducers', () => {
     };
 
     const nextState = streamsReducer(initState, action);
-    expect(nextState.game1.items[0].name).to.equal('stream1');
-    expect(nextState.game1.items.length).to.equal(1);
+    expect(nextState.game1.items[0].name).to.equal('stream3');
+    expect(nextState.game1.items.length).to.equal(3);
   }),
 
   it('REQUEST_STREAMS setting isFetching to true', () => {
