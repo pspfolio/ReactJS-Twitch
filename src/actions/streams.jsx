@@ -23,8 +23,31 @@ function receiveGames(game, json) {
 export function fetchData(game, url) {
   return dispatch => {
     dispatch(requestStreams(game));
-    return fetch(url).then(response => response.json()).then(json =>
+    return fetch(url).then(response => response.json()).then((json) => {
       dispatch(receiveGames(game, json))
+      }
     )
   }
+}
+
+function shouldFetch(state, game) {
+    var items = state[game] ? state[game] : [];
+    if(Object.keys(items).length === 0) {
+        return true;
+    } else if(items.isFetching) {
+        return false;
+    } else {
+        return false;
+    }
+}
+
+export function fetchStreamsIfNeeded(game, url) {
+    return (dispatch, getState) => {
+        var streamState = getState()['streams'];
+        if(shouldFetch(streamState, game)) {
+            return dispatch(fetchData(game, url));
+        } else {
+            return Promise.resolve();
+        }
+    }
 }

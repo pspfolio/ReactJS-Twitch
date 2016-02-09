@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../actions/streams';
+import { fetchData, fetchStreamsIfNeeded } from '../actions/streams';
 import { playStream } from '../actions/player';
 import Streams from '../components/Streams';
 import Header from '../components/Header';
@@ -30,7 +30,7 @@ class ListStreams extends Component {
 
     getStreams(name, url) {
         const { dispatch } = this.props;
-        dispatch(fetchData(name, url));
+        dispatch(fetchStreamsIfNeeded(name, url));
     }
 
     render() {

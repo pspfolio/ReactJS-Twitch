@@ -30,7 +30,7 @@ class GameStreams extends Component {
 
     getStreams(game, url) {
         const { dispatch } = this.props;
-        dispatch(fetchData(game, url));
+        dispatch(fetchStreamsIfNeeded(game, url));
     }
 
     render() {
