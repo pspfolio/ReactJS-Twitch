@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Streams from '../components/Streams';
 import { connect } from 'react-redux';
-import { fetchData } from '../actions/streams';
+import { fetchData, fetchStreamsIfNeeded } from '../actions/streams';
 import { playStream } from '../actions/player';
 
 class GameStreams extends Component {
@@ -9,11 +9,13 @@ class GameStreams extends Component {
         super(props);
         this.handleStreamClick = this.handleStreamClick.bind(this);
         this.handleMoreStreams = this.handleMoreStreams.bind(this);
-        this.getStreams = this.getStreams.bind(this);
     }
 
     componentDidMount() {
-        this.handleMoreStreams();
+        const { dispatch } = this.props;
+        const { game } = this.props.params;
+        const uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
+        dispatch(fetchStreamsIfNeeded(game, uri));
     }
 
     handleStreamClick(streamId) {
@@ -22,21 +24,21 @@ class GameStreams extends Component {
     }
 
     handleMoreStreams() {
-        const { dispatch } = this.props;
+        const { nextUrl, dispatch } = this.props;
         const { game } = this.props.params;
-        var uri = 'https://api.twitch.tv/kraken/streams?game=' + game;
-        this.getStreams(game, uri);
-    }
-
-    getStreams(game, url) {
-        const { dispatch } = this.props;
-        dispatch(fetchStreamsIfNeeded(game, url));
+        dispatch(fetchData(game, nextUrl));
     }
 
     render() {
-        const { gameStreams, selectedStream, dispatch } = this.props;
+        const { gameStreams, selectedStream, totalItemsCountApi, dispatch } = this.props;
         return(
-            <Streams streams={gameStreams} selectedStream={selectedStream} handleMoreStreams={this.handleMoreStreams} handleStreamClick={this.handleStreamClick} dispatch={dispatch} />
+            <Streams
+                streams={gameStreams}
+                selectedStream={selectedStream}
+                handleMoreStreams={this.handleMoreStreams}
+                handleStreamClick={this.handleStreamClick}
+                totalItemsCountApi={totalItemsCountApi}
+                dispatch={dispatch} />
         )
     }
 };
@@ -44,11 +46,21 @@ class GameStreams extends Component {
 function mapStateToProps(state, props) {
   const { streams, selectedStream } = state;
   const { game } = props.routeParams;
-  const { isFetching, items: gameStreams } = streams[game] || { isFetching: true, items: [] };
+  const { isFetching,
+            items: gameStreams,
+            nextUrl,
+            totalItemsCountApi
+        } = streams[game] || {
+                isFetching: true,
+                items: [], nestUrl: '',
+                totalItemsCountApi: 0
+            };
   return {
     isFetching,
     gameStreams,
-    selectedStream
+    selectedStream,
+    nextUrl,
+    totalItemsCountApi
   }
 };
 

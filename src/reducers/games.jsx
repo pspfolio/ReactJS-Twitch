@@ -11,7 +11,7 @@ function items(state = initState, action) {
         items: state.items.concat(action.items),
         nextUrl: action.nextUrl,
         lastUpdated: action.received,
-        moreGamesToFetch: action.items.length === 80
+        totalItemsCountApi: action.totalItemsCountApi
       });
     default:
       return state;

@@ -17,7 +17,8 @@ function receiveGames(twitch, json) {
     twitch,
     nextUrl: json._links.next,
     items: json.top,
-    received: Date.now()
+    received: Date.now(),
+    totalItemsCountApi: json._total
   }
 };
 

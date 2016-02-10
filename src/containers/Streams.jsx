@@ -8,14 +8,14 @@ import Header from '../components/Header';
 class ListStreams extends Component {
     constructor(props) {
         super(props);
-        this.getStreams = this.getStreams.bind(this);
         this.handleStreamClick = this.handleStreamClick.bind(this);
         this.handleMoreStreams = this.handleMoreStreams.bind(this);
     }
 
     componentDidMount() {
+        const { dispatch } = this.props;
         var uri = 'https://api.twitch.tv/kraken/streams';
-        this.getStreams('topStreams', uri)
+        dispatch(fetchStreamsIfNeeded('topStreams', uri));
     }
 
     handleStreamClick(streamId) {
@@ -24,26 +24,22 @@ class ListStreams extends Component {
     }
 
     handleMoreStreams() {
-        const { nextUrl } = this.props;
-        this.getStreams('topStreams', nextUrl);
-    }
-
-    getStreams(name, url) {
-        const { dispatch } = this.props;
-        dispatch(fetchStreamsIfNeeded(name, url));
+        const { nextUrl, dispatch } = this.props;
+        dispatch(fetchData('topStreams', nextUrl));
     }
 
     render() {
-        const { streams, selectedStream, limitResults, frontpage, dispatch } = this.props;
+        const { streams, selectedStream, limitResults, frontpage, totalItemsCountApi, dispatch } = this.props;
         return(
             <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Streams'} /> : null }
-                <Streams dispatch={dispatch} streams={streams}
+                <Streams streams={streams}
                     selectedStream={selectedStream}
                     handleStreamClick={this.handleStreamClick}
                     handleMoreStreams={this.handleMoreStreams}
                     frontpage={frontpage}
-                    />
+                    totalItemsCountApi={totalItemsCountApi}
+                    dispatch={dispatch} />
             </div>
         )
     }
@@ -52,13 +48,23 @@ class ListStreams extends Component {
 function mapStateToProps(state, props) {
     const { streams, selectedStream } = state;
     const { limitResults } = props;
-    const { isFetching, items: listStreams, nextUrl } = streams.topStreams || {isFetching: false, items: [], nextUrl: ''};
+    const { isFetching,
+            items: listStreams,
+            nextUrl,
+            totalItemsCountApi
+        } = streams.topStreams || {
+            isFetching: false,
+            items: [],
+            nextUrl: '',
+            totalItemsCountApi: 0
+        };
     var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
     return {
         isFetching,
         streams: result,
         selectedStream,
-        nextUrl
+        nextUrl,
+        totalItemsCountApi
     }
 }
 

@@ -22,26 +22,27 @@ class TopGames extends Component {
     }
 
     render() {
-        const { limitResults } = this.props;
+        const { limitResults, totalItemsCountApi } = this.props;
         return (
             <div className="container-fluid">
                 { !limitResults ? <Header headerText={'Top Games'} /> : null }
-                <Games {...this.props} handleMoreGames={this.handleMoreGames} />
+                <Games {...this.props} handleMoreGames={this.handleMoreGames} totalItemsCountApi={totalItemsCountApi} />
             </div>
         )
     }
 };
 
 function mapStateToProps(state, props) {
+    console.log(state);
   const { games } = state;
   const { limitResults, frontpage } = props;
-  const {moreGamesToFetch, isFetching, items: topGames, nextUrl} = games.topGames || {moreGamesToFetch: false, isFetching: true, items: [], nextUrl: ''};
+  const {totalItemsCountApi, isFetching, items: topGames, nextUrl} = games.topGames || {totalItemsCountApi: 0, isFetching: true, items: [], nextUrl: ''};
   const result = frontpage && limitResults ? topGames.slice(0, limitResults) : topGames;
   return {
     games : result,
     isFetching,
     nextUrl,
-    moreGamesToFetch
+    totalItemsCountApi
   }
 };
 

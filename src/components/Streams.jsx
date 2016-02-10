@@ -6,7 +6,13 @@ import ButtonTwitch from './ButtonTwitch';
 
 export default class TopStreams extends Component {
     render() {
-        const { streams, selectedStream, handleStreamClick, handleMoreStreams, frontpage, dispatch  } = this.props;
+        const { streams,
+                selectedStream,
+                handleStreamClick,
+                handleMoreStreams,
+                frontpage,
+                totalItemsCountApi,
+                dispatch  } = this.props;
         return(
             <div className="row text-center">
                 <ul className="card-list">
@@ -17,7 +23,7 @@ export default class TopStreams extends Component {
                 )}
                 </ul>
                 <div>
-                     {!frontpage ? <ButtonTwitch text={'More Streams'} clickHandler={handleMoreStreams} /> : null }
+                     {!frontpage && streams.length < totalItemsCountApi  ? <ButtonTwitch text={'More Streams'} clickHandler={handleMoreStreams} /> : null }
                 </div>
                 <Player streams={streams} selectedStream={selectedStream} dispatch={dispatch} />
             </div>
