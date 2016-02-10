@@ -33,7 +33,6 @@ class TopGames extends Component {
 };
 
 function mapStateToProps(state, props) {
-    console.log(state);
   const { games } = state;
   const { limitResults, frontpage } = props;
   const {totalItemsCountApi, isFetching, items: topGames, nextUrl} = games.topGames || {totalItemsCountApi: 0, isFetching: true, items: [], nextUrl: ''};

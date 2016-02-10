@@ -44,24 +44,17 @@ class GameStreams extends Component {
 };
 
 function mapStateToProps(state, props) {
-  const { streams, selectedStream } = state;
-  const { game } = props.routeParams;
-  const { isFetching,
-            items: gameStreams,
-            nextUrl,
-            totalItemsCountApi
-        } = streams[game] || {
-                isFetching: true,
-                items: [], nestUrl: '',
-                totalItemsCountApi: 0
-            };
-  return {
-    isFetching,
-    gameStreams,
-    selectedStream,
-    nextUrl,
-    totalItemsCountApi
-  }
+    const { streams, selectedStream } = state;
+    const { game } = props.routeParams;
+    const { isFetching, items: gameStreams, nextUrl, totalItemsCountApi } = streams[game] ||
+          { isFetching: true, items: [], nextUrl: '',totalItemsCountApi: 0 };
+    return {
+        isFetching,
+        gameStreams,
+        selectedStream,
+        nextUrl,
+        totalItemsCountApi
+    };
 };
 
 export default connect(mapStateToProps)(GameStreams);
