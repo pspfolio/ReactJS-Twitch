@@ -29,10 +29,10 @@ class ListStreams extends Component {
     }
 
     render() {
-        const { streams, selectedStream, limitResults, frontpage, totalItemsCountApi, dispatch } = this.props;
+        const { streams, selectedStream, frontpage, totalItemsCountApi, dispatch } = this.props;
         return(
             <div className="container-fluid">
-                { !limitResults ? <Header headerText={'Top Streams'} /> : null }
+                { !frontpage ? <Header headerText={'Top Streams'} /> : null }
                 <Streams streams={streams}
                     selectedStream={selectedStream}
                     handleStreamClick={this.handleStreamClick}
@@ -47,18 +47,10 @@ class ListStreams extends Component {
 
 function mapStateToProps(state, props) {
     const { streams, selectedStream } = state;
-    const { limitResults } = props;
-    const { isFetching,
-            items: listStreams,
-            nextUrl,
-            totalItemsCountApi
-        } = streams.topStreams || {
-            isFetching: false,
-            items: [],
-            nextUrl: '',
-            totalItemsCountApi: 0
-        };
-    var result = listStreams.length > 0 ? listStreams.slice(0, limitResults) : listStreams
+    const { limitResults, frontpage } = props;
+    const { isFetching, items: listStreams, nextUrl, totalItemsCountApi } = streams.topStreams ||
+          { isFetching: false, items: [], nextUrl: '', totalItemsCountApi: 0 };
+    var result = frontpage && limitResults ? listStreams.slice(0, limitResults) : listStreams
     return {
         isFetching,
         streams: result,

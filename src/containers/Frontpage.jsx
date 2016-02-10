@@ -11,6 +11,7 @@ var images = {
 
 export default class FrontPage extends Component {
   render() {
+    // Limit how many items to show in frontpage
     const limitResultsGames = 4;
     const limitResultsStreams = 3;
     return(

@@ -39,7 +39,7 @@ export default class Player extends Component {
         }
         return(
             <div>
-                {player}
+                { player }
             </div>
         )
     }
