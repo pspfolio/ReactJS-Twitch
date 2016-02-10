@@ -10,7 +10,8 @@ function stream(state = initState, action) {
         isFetching: false,
         items: state.items.concat(action.items),
         lastUpdated: action.received,
-        nextUrl: action.nextUrl
+        nextUrl: action.nextUrl,
+        totalItemsCountApi: action.totalItemsCountApi
       });
     default:
       return state;
