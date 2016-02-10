@@ -6,7 +6,6 @@ import ButtonTwitch from './ButtonTwitch';
 export default class Games extends Component {
     render() {
       const { games, frontpage, moreGamesToFetch, handleMoreGames, totalItemsCountApi } = this.props;
-      console.log(totalItemsCountApi);
       return(
           <div>
               <div className="row text-center">
