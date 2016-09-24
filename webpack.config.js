@@ -13,8 +13,12 @@ module.exports = {
     loader: 'react-hot!babel'
   },
   {
-    test: /\.scss$/,
-    loader: 'style!css!sass'
+      test   : /\.png$/,
+      loader: "file-loader"
+  },
+  {
+      test   : /\.scss$/,
+      loaders: ['style', 'css', 'resolve-url', 'sass?sourceMap']
   }
 ]
 },

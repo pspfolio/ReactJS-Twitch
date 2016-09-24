@@ -13,7 +13,11 @@ module.exports = {
   {
     test: /\.scss$/,
     loader: 'style!css!sass'
-  }
+},
+{
+    test   : /\.png$/,
+    loader: "file-loader"
+},
 ]
 },
 resolve: {
@@ -25,3 +29,8 @@ resolve: {
     filename: 'bundle.js'
   }
 };
+
+/*
+http://pspfolio.github.io/ReactJS-Twitch/prod/12beade9232e689a16bc544b06282221.png
+ http://pspfolio.github.io/ReactJS-Twitch/prod/ReactJS-Twitch/prod/12beade9232e689a16bc544b06282221.png
+*/
