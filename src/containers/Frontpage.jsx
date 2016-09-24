@@ -6,7 +6,7 @@ import Streams from './Streams';
 import Header from '../components/Header';
 
 var images = {
-  twitchLogoPath: '../images/twitch_logo.png'
+  twitchLogoPath: '../prod/images/twitch_logo.png'
 }
 
 export default class FrontPage extends Component {
