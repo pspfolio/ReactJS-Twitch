@@ -48,7 +48,6 @@ describe('Streams reducers', () => {
       game: 'game1'
     };
     const nextState = streamsReducer(initState, action);
-    console.log(nextState);
     expect(nextState.game1.isFetching).to.be.false;
     expect(nextState.game1.items[0].name).to.equal('stream1');
   }),
