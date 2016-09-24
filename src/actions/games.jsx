@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import * as constants from '../constants'
 
 export const REQUEST_GAMES = 'REQUEST_GAMES';
 export const RECEIVE_GAMES = 'RECEIVE_GAMES';
@@ -26,7 +27,11 @@ function receiveGames(twitch, json) {
 export function fetchData(twitch, url) {
   return dispatch => {
     dispatch(requestGames(twitch));
-    return fetch(url).then(response => response.json()).then((json) => {
+    return fetch(url, {
+      headers: {
+        'client-id' : constants.CLIENTID
+      }
+    }).then(response => response.json()).then((json) => {
       dispatch(receiveGames(twitch, json))
     })
   }

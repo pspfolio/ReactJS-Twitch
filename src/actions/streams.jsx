@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import * as constants from '../constants'
 
 export const REQUEST_STREAMS = 'REQUEST_STREAMS';
 export const RECEIVE_STREAMS = 'RECEIVE_STREAMS';
@@ -24,7 +25,11 @@ function receiveStreams(game, json) {
 export function fetchData(game, url) {
     return dispatch => {
         dispatch(requestStreams(game));
-        return fetch(url).then(response => response.json()).then((json) => {
+        return fetch(url, {
+          headers: {
+            'client-id': constants.CLIENTID
+          }
+        }).then(response => response.json()).then((json) => {
             dispatch(receiveStreams(game, json))
         })
     }
